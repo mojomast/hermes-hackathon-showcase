@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>photo-to-part — photos and measurements to printable parametric parts, for Hermes Agent</title>
+<meta name="description" content="Turn photos, a few measurements, or a messy 3D scan into a parametric part you can print or edit.">
+<meta name="theme-color" content="#0f3d73">
+<meta property="og:title" content="photo-to-part — photos and measurements to printable parametric parts, for Hermes Agent">
+<meta property="og:description" content="Turn photos, a few measurements, or a messy 3D scan into a parametric part you can print or edit.">
+<meta property="og:image" content="../assets/photo-to-part/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&family=B612+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../assetrizz/" rel="prev" aria-label="Previous entry: assetrizz"><span aria-hidden="true">←</span> <span class="n-txt">assetrizz</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">08/10</span></a>
+  <a class="n-next" href="../templeos/" rel="next" aria-label="Next entry: TempleOS for Hermes"><span class="n-txt">TempleOS for Hermes</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+<div class="sheet">
+  <div class="zones top" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+  <div class="zones left" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  <main id="main">
+    <section class="hero" aria-labelledby="t">
+      <div class="hero-text">
+        <p class="tag">DWG · HERMES AGENT PLUGIN</p>
+        <h1 id="t">Photo<span>→</span>Part</h1>
+        <p class="lede">Turn photos, a few measurements, or a messy 3D scan into a parametric part you can print or edit.</p>
+        <ol class="stages" aria-label="Part studio stages shown in the pane"><li>Photo</li><li>Scale</li><li>Segment</li><li>Spec</li><li>Approval</li><li>Build</li><li>Render</li><li>Compare</li><li>Refine</li></ol>
+      </div>
+      <figure class="hero-dwg">
+<svg class="dwg" viewBox="0 0 520 380" role="img" aria-labelledby="dwg-t">
+  <title id="dwg-t">Envelope of the checked-in plate clip sample: 51 by 72.6 by 6 millimetres, front and side views.</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 z" fill="currentColor"/></marker>
+  </defs>
+  <g class="views">
+    <rect class="part" x="80" y="40" width="153" height="217.8" rx="6"/>
+    <line class="center" x1="156.5" y1="22" x2="156.5" y2="276"/>
+    <line class="center" x1="62" y1="148.9" x2="251" y2="148.9"/>
+    <rect class="part" x="330" y="40" width="18" height="217.8"/>
+    <line class="center" x1="339" y1="22" x2="339" y2="276"/>
+    <line class="proj" x1="233" y1="40" x2="330" y2="40"/>
+    <line class="proj" x1="233" y1="257.8" x2="330" y2="257.8"/>
+  </g>
+  <g class="dims">
+    <line class="ext" x1="80" y1="262" x2="80" y2="312"/><line class="ext" x1="233" y1="262" x2="233" y2="312"/>
+    <line class="dim" x1="80" y1="302" x2="233" y2="302" marker-start="url(#ar)" marker-end="url(#ar)"/>
+    <text x="156.5" y="296" text-anchor="middle">51</text>
+    <line class="ext" x1="76" y1="40" x2="26" y2="40"/><line class="ext" x1="76" y1="257.8" x2="26" y2="257.8"/>
+    <line class="dim" x1="36" y1="40" x2="36" y2="257.8" marker-start="url(#ar)" marker-end="url(#ar)"/>
+    <text x="26" y="148.9" text-anchor="middle" transform="rotate(-90 26 148.9)">72.6</text>
+    <line class="ext" x1="330" y1="262" x2="330" y2="312"/><line class="ext" x1="348" y1="262" x2="348" y2="312"/>
+    <line class="dim" x1="300" y1="302" x2="330" y2="302" marker-end="url(#ar)"/>
+    <line class="dim" x1="378" y1="302" x2="348" y2="302" marker-end="url(#ar)"/>
+    <text x="339" y="296" text-anchor="middle">6</text>
+  </g>
+  <g class="labels">
+    <text x="156.5" y="345" text-anchor="middle">FRONT</text>
+    <text x="339" y="345" text-anchor="middle">SIDE</text>
+    <text x="384" y="80">ENVELOPE ONLY</text>
+    <text x="384" y="96">examples/</text>
+    <text x="384" y="110">plate-clip</text>
+    <text x="384" y="126">UNITS: mm</text>
+  </g>
+</svg><figcaption>Fig. 0 — bounding envelope of the sample in <code>examples/plate-clip</code> (51 × 72.6 × 6 mm).</figcaption></figure>
+    </section>
+
+    <section class="block what" data-reveal aria-labelledby="what-h">
+      <h2 id="what-h"><span class="bubble">A</span> General notes</h2>
+      <div class="notes">
+        <p>photo-to-part is one skill, <code>photo-to-part:photo-to-printable-part</code>, plus six tools. Hand it a photo, a few measurements, or a messy 3D scan, and it works toward a parametric part you can print or edit: templates first, then a local Python build behind an approval prompt, then validation and comparison renders held next to your photo.</p>
+        <p>On Hermes 0.23 or newer, an optional Part studio pane shows the stage, photo overlay, renders, history, scale and trust, approval, and output paths. The tools install without it.</p>
+      </div>
+      <ol class="drawing-notes">
+        <li>One skill (photo-to-part:photo-to-printable-part) and six tools</li>
+        <li>Optional Part studio Desktop pane on Hermes 0.23+ showing stage, photo overlay, renders, history, scale/trust, approval, and output paths</li>
+        <li>Templates including plate clip, spur gear, scroll, and strap hinge; builds are local Python with an approval prompt</li>
+        <li>Validate watertight meshes and stated sizes; heal messy scans; render comparison views next to the photo</li>
+        <li>User-stated millimetre values are not replaced by a photo measurement</li>
+        <li>No credentials, no printer connection, no network from the tools; chat photos still go to your model provider</li>
+      </ol>
+    </section>
+
+    <section class="block bom-sec" data-reveal aria-labelledby="bom-h">
+      <h2 id="bom-h"><span class="bubble">B</span> Bill of materials</h2>
+      <div class="table-wrap">
+      <table class="bom">
+        <thead><tr><th scope="col">Item</th><th scope="col">Tool</th><th scope="col">Function</th><th scope="col">Qty</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><th scope="row"><code>photo_part_validate</code></th><td>Watertightness, shell count, bounding box, circular bores, printability, and a spec or <code>--dim</code> check</td><td>1</td></tr>
+          <tr><td>2</td><th scope="row"><code>photo_part_render</code></th><td>Front, side, top and iso previews, an eight-view comparison sheet, a side-by-side and a silhouette overlay with IoU</td><td>1</td></tr>
+          <tr><td>3</td><th scope="row"><code>photo_part_heal</code></th><td>Weld, fill holes, and keep the largest shell of a scan</td><td>1</td></tr>
+          <tr><td>4</td><th scope="row"><code>photo_part_template</code></th><td>A watertight block from a template (plate, L-bracket, hinge, thread, spur gear, spiral scroll, strap hinge, …)</td><td>1</td></tr>
+          <tr><td>5</td><th scope="row"><code>photo_part_measure</code></th><td>Pixels per millimetre from a coin, a ruler, or an ArUco/AprilTag marker</td><td>1</td></tr>
+          <tr><td>6</td><th scope="row"><code>photo_part_build</code></th><td>Runs one local .py file after Hermes asks for approval. No shell</td><td>1</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="block details" data-reveal aria-labelledby="det-h">
+      <h2 id="det-h"><span class="bubble">C</span> Details: use cases</h2>
+      <ol class="detail-list">
+        <li><span class="callout" aria-hidden="true">D</span><p><b>Detail D.</b> Ask for a replacement part from a photo and a few measurements, then print a validated STL</p></li>
+        <li><span class="callout" aria-hidden="true">E</span><p><b>Detail E.</b> Make a fit-test print of a plate clip (the checked-in sample is 51 × 72.6 × 6 mm in examples/plate-clip)</p></li>
+        <li><span class="callout" aria-hidden="true">F</span><p><b>Detail F.</b> Turn a messy 3D scan into a healed solid with <code>photo_part_heal</code>, then validate and render views</p></li>
+        <li><span class="callout" aria-hidden="true">G</span><p><b>Detail G.</b> Generate a spur gear from stated module, tooth count, and bore, after the template path has been tried</p></li>
+        <li><span class="callout" aria-hidden="true">H</span><p><b>Detail H.</b> Model a strap hinge (one or two scrolls on a straight strap) and compare the photo overlay in the Part studio pane</p></li>
+        <li><span class="callout" aria-hidden="true">I</span><p><b>Detail I.</b> Hold rendered front/iso/side/top views next to the original photograph to check the fit before you print</p></li>
+      </ol>
+    </section>
+
+    <section class="block section-v" data-reveal aria-labelledby="vid-h">
+      <h2 id="vid-h"><span class="bubble">J</span> Section J–J: the submission video</h2>
+      <figure class="vid">
+  <video controls preload="none" playsinline width="1280" height="720" poster="../assets/photo-to-part/poster.jpg" aria-label="photo-to-part submission video, 1:00">
+    <source src="../assets/photo-to-part/video.mp4" type="video/mp4">
+    <a href="../assets/photo-to-part/video.mp4">Download the photo-to-part submission video (MP4)</a>
+  </video>
+  <figcaption>Submission video · 1:00 · <a href="https://x.com/ussyverse/status/2120597848089882860">original post on X</a></figcaption>
+</figure>
+    </section>
+
+    <section class="block views" data-reveal aria-labelledby="gal-h">
+      <h2 id="gal-h"><span class="bubble">K</span> Views</h2>
+      <ul class="view-grid" data-gallery aria-label="photo-to-part screenshots and renders">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/hinge-photo-vs-part.l.webp" data-orig="../assets/photo-to-part/img/hinge-photo-vs-part.png" data-caption="Reference photo of a door hinge beside the modelled part, front view in millimetres." aria-label="Enlarge: Reference photo of a door hinge beside the modelled part, front view in millimetres."><img src="../thumbs/photo-to-part/hinge-photo-vs-part.t.webp" width="640" height="344" alt="Reference photo of a door hinge beside the modelled part, front view in millimetres." loading="lazy" decoding="async"></button>
+    <figcaption>Reference photo of a door hinge beside the modelled part, front view in millimetres.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/gear-pane-ready.l.webp" data-orig="../assets/photo-to-part/img/gear-pane-ready.png" data-caption="Part studio pane for gear18: photo overlay, render, overlay IoU 0.944, dimensions 30 × 29.7 × 8 mm, ready to deliver." aria-label="Enlarge: Part studio pane for gear18: photo overlay, render, overlay IoU 0.944, dimensions 30 × 29.7 × 8 mm, ready to deliver."><img src="../thumbs/photo-to-part/gear-pane-ready.t.webp" width="640" height="784" alt="Part studio pane for gear18: photo overlay, render, overlay IoU 0.944, dimensions 30 × 29.7 × 8 mm, ready to deliver." loading="lazy" decoding="async"></button>
+    <figcaption>Part studio pane for gear18: photo overlay, render, overlay IoU 0.944, dimensions 30 × 29.7 × 8 mm, ready to deliver.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/strap-hinge-pane-ready.l.webp" data-orig="../assets/photo-to-part/img/strap-hinge-pane-ready.png" data-caption="Part studio pane with a strap hinge ready to deliver." aria-label="Enlarge: Part studio pane with a strap hinge ready to deliver."><img src="../thumbs/photo-to-part/strap-hinge-pane-ready.t.webp" width="640" height="766" alt="Part studio pane with a strap hinge ready to deliver." loading="lazy" decoding="async"></button>
+    <figcaption>Part studio pane with a strap hinge ready to deliver.</figcaption>
+  </figure></li>
+  <li class="g-item g-4"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/strap-hinge-pane-ready-2.l.webp" data-orig="../assets/photo-to-part/img/strap-hinge-pane-ready-2.png" data-caption="Part studio pane with a second strap hinge variant ready." aria-label="Enlarge: Part studio pane with a second strap hinge variant ready."><img src="../thumbs/photo-to-part/strap-hinge-pane-ready-2.t.webp" width="640" height="914" alt="Part studio pane with a second strap hinge variant ready." loading="lazy" decoding="async"></button>
+    <figcaption>Part studio pane with a second strap hinge variant ready.</figcaption>
+  </figure></li>
+  <li class="g-item g-5"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/docs-screenshot-views.l.webp" data-orig="../assets/photo-to-part/img/docs-screenshot-views.png" data-caption="Four views of the sample plate clip." aria-label="Enlarge: Four views of the sample plate clip."><img src="../thumbs/photo-to-part/docs-screenshot-views.t.webp" width="640" height="700" alt="Four views of the sample plate clip." loading="lazy" decoding="async"></button>
+    <figcaption>Four views of the sample plate clip.</figcaption>
+  </figure></li>
+  <li class="g-item g-6"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-renders-compare_front.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-renders-compare_front.png" data-caption="Synthetic reference beside the front view of the plate clip." aria-label="Enlarge: Synthetic reference beside the front view of the plate clip."><img src="../thumbs/photo-to-part/examples-plate-clip-renders-compare_front.t.webp" width="640" height="386" alt="Synthetic reference beside the front view of the plate clip." loading="lazy" decoding="async"></button>
+    <figcaption>Synthetic reference beside the front view of the plate clip.</figcaption>
+  </figure></li>
+  <li class="g-item g-7"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-renders-iso.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-renders-iso.png" data-caption="Plate clip, isometric render." aria-label="Enlarge: Plate clip, isometric render."><img src="../thumbs/photo-to-part/examples-plate-clip-renders-iso.t.webp" width="640" height="676" alt="Plate clip, isometric render." loading="lazy" decoding="async"></button>
+    <figcaption>Plate clip, isometric render.</figcaption>
+  </figure></li>
+  <li class="g-item g-8"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-renders-front.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-renders-front.png" data-caption="Plate clip, front render." aria-label="Enlarge: Plate clip, front render."><img src="../thumbs/photo-to-part/examples-plate-clip-renders-front.t.webp" width="640" height="676" alt="Plate clip, front render." loading="lazy" decoding="async"></button>
+    <figcaption>Plate clip, front render.</figcaption>
+  </figure></li>
+  <li class="g-item g-9"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-renders-side.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-renders-side.png" data-caption="Plate clip, side render." aria-label="Enlarge: Plate clip, side render."><img src="../thumbs/photo-to-part/examples-plate-clip-renders-side.t.webp" width="640" height="676" alt="Plate clip, side render." loading="lazy" decoding="async"></button>
+    <figcaption>Plate clip, side render.</figcaption>
+  </figure></li>
+  <li class="g-item g-10"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-renders-top.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-renders-top.png" data-caption="Plate clip, top render." aria-label="Enlarge: Plate clip, top render."><img src="../thumbs/photo-to-part/examples-plate-clip-renders-top.t.webp" width="640" height="676" alt="Plate clip, top render." loading="lazy" decoding="async"></button>
+    <figcaption>Plate clip, top render.</figcaption>
+  </figure></li>
+  <li class="g-item g-11"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/examples-plate-clip-synthetic_reference.l.webp" data-orig="../assets/photo-to-part/img/examples-plate-clip-synthetic_reference.png" data-caption="Synthetic reference image for the plate clip example." aria-label="Enlarge: Synthetic reference image for the plate clip example."><img src="../thumbs/photo-to-part/examples-plate-clip-synthetic_reference.t.webp" width="592" height="752" alt="Synthetic reference image for the plate clip example." loading="lazy" decoding="async"></button>
+    <figcaption>Synthetic reference image for the plate clip example.</figcaption>
+  </figure></li>
+  <li class="g-item g-12"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/docs-research-pane-mid-run.l.webp" data-orig="../assets/photo-to-part/img/docs-research-pane-mid-run.png" data-caption="Part studio pane mid-run." aria-label="Enlarge: Part studio pane mid-run."><img src="../thumbs/photo-to-part/docs-research-pane-mid-run.t.webp" width="640" height="810" alt="Part studio pane mid-run." loading="lazy" decoding="async"></button>
+    <figcaption>Part studio pane mid-run.</figcaption>
+  </figure></li>
+  <li class="g-item g-13"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/docs-research-pane-complete.l.webp" data-orig="../assets/photo-to-part/img/docs-research-pane-complete.png" data-caption="Part studio pane after a completed run." aria-label="Enlarge: Part studio pane after a completed run."><img src="../thumbs/photo-to-part/docs-research-pane-complete.t.webp" width="640" height="790" alt="Part studio pane after a completed run." loading="lazy" decoding="async"></button>
+    <figcaption>Part studio pane after a completed run.</figcaption>
+  </figure></li>
+  <li class="g-item g-14"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/photo-to-part/docs-catalog-banner.l.webp" data-orig="../assets/photo-to-part/img/docs-catalog-banner.png" data-caption="photo-to-part catalog banner." aria-label="Enlarge: photo-to-part catalog banner."><img src="../thumbs/photo-to-part/docs-catalog-banner.t.webp" width="640" height="320" alt="photo-to-part catalog banner." loading="lazy" decoding="async"></button>
+    <figcaption>photo-to-part catalog banner.</figcaption>
+  </figure></li>
+</ul>
+    </section>
+
+    <section class="block inst" data-reveal aria-labelledby="inst-h">
+      <h2 id="inst-h"><span class="bubble">L</span> Assembly instructions</h2>
+      <div class="install">
+<p>Install the plugin/ subdirectory so evals/ and tests/ are not copied into Hermes:</p>
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/hermes-photo-to-part/plugin --ref d924991f56ad4cf7b94e33f2ac5dcb6cf24fac5f
+hermes plugins enable photo-to-part</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/hermes-photo-to-part/plugin --ref d924991f56ad4cf7b94e33f2ac5dcb6cf24fac5f
+hermes plugins enable photo-to-part">Copy</button></div>
+<p>Until catalog acceptance the README also shows <code>--no-enable</code> first so you can read the code. After catalog acceptance the reviewed install is hermes plugins install photo-to-part. Load the skill with <code>skill_view(&quot;photo-to-part:photo-to-printable-part&quot;)</code>. Enabling the plugin installs its Python packages from PyPI after Hermes dependency consent. A STEP solid needs CadQuery or build123d in the project environment (optional, can take several minutes). A root install without /plugin is refused.</p>
+</div>
+      <p class="tn">README documents unittest discover -s tests and hermes plugins validate / doctor --ci, but does not publish a test count.</p>
+    </section>
+
+    <section class="block refs" data-reveal aria-labelledby="ref-h">
+      <h2 id="ref-h"><span class="bubble">M</span> Referenced documents</h2>
+      <ul class="links">
+  <li><a href="https://github.com/mojomast/hermes-photo-to-part"><span class="l-label">Repository</span> <span class="l-sub">mojomast/hermes-photo-to-part</span></a></li>
+  <li><a href="https://github.com/mojomast/hermes-photo-to-part/releases/tag/v0.1.22"><span class="l-label">Release v0.1.22</span> <span class="l-sub">d924991</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2120597848089882860"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/153757"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #153757</span></a></li>
+</ul>
+    </section>
+
+    <table class="title-block" aria-label="Title block">
+      <tbody>
+        <tr><th scope="row">Title</th><td colspan="3" class="tb-title">Photo to Part</td></tr>
+        <tr><th scope="row">Plugin</th><td><code>photo-to-part</code></td><th scope="row">Rev</th><td>v0.1.22</td></tr>
+        <tr><th scope="row">Dwg no.</th><td>d924991f56</td><th scope="row">Tools</th><td>6</td></tr>
+        <tr><th scope="row">Video</th><td>1:00</td><th scope="row">Units</th><td>mm</td></tr>
+        <tr><th scope="row">Drawn</th><td colspan="3">Kyle Durepos · mojomast</td></tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+<footer class="credit">
+  <p>photo-to-part is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/hermes-photo-to-part">plugin repository</a> under its license.</p>
+</footer>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>

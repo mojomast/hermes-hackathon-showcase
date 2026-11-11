@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hyperrizz — agent-led HyperFrames films for Hermes Agent</title>
+<meta name="description" content="Tell Hermes the story. Watch your film take shape.">
+<meta name="theme-color" content="#0c0c0f">
+<meta property="og:title" content="hyperrizz — agent-led HyperFrames films for Hermes Agent">
+<meta property="og:description" content="Tell Hermes the story. Watch your film take shape.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../poptart/" rel="prev" aria-label="Previous entry: poptart"><span aria-hidden="true">←</span> <span class="n-txt">poptart</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">04/10</span></a>
+  <a class="n-next" href="../stitchslop/" rel="next" aria-label="Next entry: stitchslop"><span class="n-txt">stitchslop</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <div class="frame">
+      <img src="../thumbs/hyperrizz/broadcast-lab.l.webp" srcset="../thumbs/hyperrizz/broadcast-lab.t.webp 640w, ../thumbs/hyperrizz/broadcast-lab.l.webp 960w" sizes="100vw" width="960" height="540" alt="" class="plate" fetchpriority="high" decoding="async">
+      <div class="hud" aria-hidden="true">
+        <span class="rec">● REC</span>
+        <span class="tc" id="tc">00:00:00:00</span>
+        <span class="safe"></span>
+      </div>
+      <div class="title-card">
+        <p class="pre">A Hermes Agent plugin by Kyle Durepos</p>
+        <h1 id="t">Hyperrizz</h1>
+        <p class="lede">Tell Hermes the story. Watch your film take shape.</p>
+      </div>
+    </div>
+    <dl class="slate" aria-label="Production slate">
+      <div><dt>Prod.</dt><dd>hyperrizz</dd></div>
+      <div><dt>Roll</dt><dd>v2.1.0</dd></div>
+      <div><dt>Tools</dt><dd>3</dd></div>
+      <div><dt>Starter</dt><dd>HyperFrames 0.9.23</dd></div>
+      <div><dt>Verifier</dt><dd>8 FFmpeg tests</dd></div>
+      <div><dt>Hermes</dt><dd>&gt;=0.23.0</dd></div>
+    </dl>
+  </section>
+
+  <section class="script" data-reveal aria-labelledby="what-h">
+    <h2 id="what-h" class="slug">INT. HERMES CHAT — CONTINUOUS</h2>
+    <p class="action">You tell Hermes the story. Hermes researches, art-directs, writes the scenes, builds a <a href="https://hyperframes.heygen.com">HyperFrames</a> project, checks it and iterates. You watch the real project in a live review pane, with playback, sound, a scrubber and frame stepping, before anyone spends time encoding an MP4.</p>
+    <p class="paren">(you pause on a moment)</p>
+    <p class="action">You write what you want changed and hit <b>Iterate with Hermes</b>. The note carries the project, revision and exact frame back into the conversation. The next successful build refreshes the preview. When you want the controls yourself, <b>Full editor</b> opens the actual HyperFrames Studio inside the pane.</p>
+    <p class="action">Production is local: Node, Chromium and FFmpeg, with no API keys and no hosted generation.</p>
+    <p class="trans">CUT TO:</p>
+  </section>
+
+  <section class="shots" data-reveal aria-labelledby="shots-h">
+    <h2 id="shots-h" class="slug">SHOT LIST</h2>
+    <table>
+      <thead><tr><th scope="col">Shot</th><th scope="col">Description</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1A</th><td>Agent-led HyperFrames films with a live review pane, frame notes, revisions, and on-demand full Studio</td></tr>
+        <tr><th scope="row">2A</th><td>Three tools: <code>hyperrizz_project</code>, <code>hyperrizz_review</code>, <code>hyperrizz_produce</code></td></tr>
+        <tr><th scope="row">3A</th><td>v2.1.0 money shot: every delivered film opens on a finished hero at full brightness so frame 0 works as a thumbnail</td></tr>
+        <tr><th scope="row">4A</th><td>Local Node/Chromium/FFmpeg production; no API keys or hosted generation</td></tr>
+        <tr><th scope="row">5A</th><td>Starter pinned to HyperFrames 0.9.23; Linux is the tested production platform</td></tr>
+        <tr><th scope="row">6A</th><td>verify-media.py extracts frame 0 and rejects a near-black or blank opening</td></tr>
+      </tbody>
+    </table>
+    <ul class="tools"><li><code>hyperrizz_project</code></li><li><code>hyperrizz_review</code></li><li><code>hyperrizz_produce</code></li></ul>
+  </section>
+
+  <section class="boards" data-reveal aria-labelledby="board-h">
+    <h2 id="board-h" class="slug">STORYBOARD — WHAT YOU CAN MAKE</h2>
+    <ol class="panels">
+      <li><div class="pframe" aria-hidden="true"><span>01</span></div><p>Tell Hermes the story and have it materialize a HyperFrames project you can review in the live pane</p></li>
+      <li><div class="pframe" aria-hidden="true"><span>02</span></div><p>Leave frame-specific notes and request a revision pass without leaving chat</p></li>
+      <li><div class="pframe" aria-hidden="true"><span>03</span></div><p>Open the full HyperFrames Studio when you want to edit the film yourself</p></li>
+      <li><div class="pframe" aria-hidden="true"><span>04</span></div><p>Deliver a film that starts on a readable hero/title frame (the v2.1.0 money-shot default), suitable as a social thumbnail</p></li>
+      <li><div class="pframe" aria-hidden="true"><span>05</span></div><p>Run the broadcast lab example (docs/examples/broadcast-lab.png and contact sheet in img/) as a known production check</p></li>
+      <li><div class="pframe" aria-hidden="true"><span>06</span></div><p>Verify the finished MP4 with the packaged verifier, including the frame-0 hero check</p></li>
+    </ol>
+  </section>
+
+  <section class="notes" data-reveal aria-labelledby="notes-h">
+    <h2 id="notes-h" class="slug">DIRECTOR'S NOTES</h2>
+    <p class="action">From the README: reuse the engineering, invent the film.</p>
+    <table class="two">
+      <thead><tr><th scope="col">A good-looking frame needs…</th><th scope="col">A finished film also needs…</th></tr></thead>
+      <tbody><tr><td>A subject-derived visual identity</td><td>An editorial arc and readable holds</td></tr><tr><td>Strong type and composition</td><td>Meaningful variation between shots</td></tr><tr><td>Convincing media treatment</td><td>Honest provenance and sharp source pixels</td></tr><tr><td>Music and motion</td><td>Correct downbeat, phrase phase and audio levels</td></tr></tbody>
+    </table>
+  </section>
+
+  <section class="dailies" data-reveal aria-labelledby="dailies-h">
+    <h2 id="dailies-h" class="slug">DAILIES</h2>
+    <div class="monitor"><div class="x-embed" data-x-embed>
+  <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+    <p>hyperrizz submission post by @ussyverse on X.</p>
+    <a href="https://x.com/ussyverse/status/2119790524097765383">View the submission post on X</a>
+  </blockquote>
+  <p class="x-fallback">No submission video was found for hyperrizz, so the X post is embedded instead. If it does not load, <a href="https://x.com/ussyverse/status/2119790524097765383">open the post on X</a>.</p>
+</div></div>
+  </section>
+
+  <section class="strip-sec" data-reveal aria-labelledby="strip-h">
+    <h2 id="strip-h" class="slug">CONTACT PRINTS</h2>
+    <div class="strip"><ul class="gallery" data-gallery aria-label="hyperrizz stills and screenshots">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/hyperrizz/hermes-review-pane.l.webp" data-orig="../assets/hyperrizz/img/hermes-review-pane.png" data-caption="Hyperrizz live review pane, running the actual broadcast composition." aria-label="Enlarge: Hyperrizz live review pane, running the actual broadcast composition."><img src="../thumbs/hyperrizz/hermes-review-pane.t.webp" width="640" height="818" alt="Hyperrizz live review pane, running the actual broadcast composition." loading="lazy" decoding="async"></button>
+    <figcaption>Hyperrizz live review pane, running the actual broadcast composition.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/hyperrizz/broadcast-lab.l.webp" data-orig="../assets/hyperrizz/img/broadcast-lab.png" data-caption="The advanced broadcast lab: dressed pixel characters, CRT/VHS treatment and a title card reading Same frame. Every time." aria-label="Enlarge: The advanced broadcast lab: dressed pixel characters, CRT/VHS treatment and a title card reading Same frame. Every time."><img src="../thumbs/hyperrizz/broadcast-lab.t.webp" width="640" height="360" alt="The advanced broadcast lab: dressed pixel characters, CRT/VHS treatment and a title card reading Same frame. Every time." loading="lazy" decoding="async"></button>
+    <figcaption>The advanced broadcast lab: dressed pixel characters, CRT/VHS treatment and a title card reading Same frame. Every time.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/hyperrizz/broadcast-contact-sheet.l.webp" data-orig="../assets/hyperrizz/img/broadcast-contact-sheet.jpg" data-caption="Contact sheet of frames from the broadcast lab example film." aria-label="Enlarge: Contact sheet of frames from the broadcast lab example film."><img src="../thumbs/hyperrizz/broadcast-contact-sheet.t.webp" width="640" height="260" alt="Contact sheet of frames from the broadcast lab example film." loading="lazy" decoding="async"></button>
+    <figcaption>Contact sheet of frames from the broadcast lab example film.</figcaption>
+  </figure></li>
+  <li class="g-item g-4"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/hyperrizz/hyperframes-studio.l.webp" data-orig="../assets/hyperrizz/img/hyperframes-studio.jpg" data-caption="The full HyperFrames Studio: compositions, preview, design inspector and a two-scene timeline." aria-label="Enlarge: The full HyperFrames Studio: compositions, preview, design inspector and a two-scene timeline."><img src="../thumbs/hyperrizz/hyperframes-studio.t.webp" width="640" height="400" alt="The full HyperFrames Studio: compositions, preview, design inspector and a two-scene timeline." loading="lazy" decoding="async"></button>
+    <figcaption>The full HyperFrames Studio: compositions, preview, design inspector and a two-scene timeline.</figcaption>
+  </figure></li>
+</ul></div>
+  </section>
+
+  <section class="callsheet" data-reveal aria-labelledby="call-h">
+    <h2 id="call-h" class="slug">CALL SHEET — INSTALL</h2>
+    <div class="install">
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/hyperrizz --ref 35c482e22413ee43c74955bd6da7fe7b053cdd9b
+hermes plugins enable hyperrizz</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/hyperrizz --ref 35c482e22413ee43c74955bd6da7fe7b053cdd9b
+hermes plugins enable hyperrizz">Copy</button></div>
+<p>The package includes the agent tools and desktop/plugin.js. For a remote Hermes backend, install the Desktop half on the client through Install Plugin as well. The first build installs the pinned npm dependencies automatically. Linux is the tested production platform; macOS is declared but not yet tested. Platforms in the catalog entry: linux, macos.</p>
+</div>
+  </section>
+
+  <section class="credits" data-reveal aria-labelledby="cred-h">
+    <h2 id="cred-h">Credits</h2>
+    <dl class="roll">
+      <div><dt>agent tools</dt><dd>3</dd></div>
+      <div><dt>ffmpeg regression tests</dt><dd>8</dd></div>
+      <div><dt>release</dt><dd>v2.1.0</dd></div>
+    </dl>
+    <p class="cred-note">README: 8 real-FFmpeg regression tests covering valid media, failure cases, and a near-black or blank frame 0. CI covers package integrity and verifier regression tests; the full browser/render smoke test is documented in VALIDATION.md.</p>
+    <ul class="links">
+  <li><a href="https://github.com/mojomast/hyperrizz"><span class="l-label">Repository</span> <span class="l-sub">mojomast/hyperrizz</span></a></li>
+  <li><a href="https://github.com/mojomast/hyperrizz/releases/tag/v2.1.0"><span class="l-label">Release v2.1.0</span> <span class="l-sub">35c482e</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2119790524097765383"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/151945"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #151945</span></a></li>
+</ul>
+  </section>
+</main>
+<footer class="credit">
+  <p>hyperrizz is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/hyperrizz">plugin repository</a> under its license.</p>
+</footer>
+<script src="tc.js" defer></script>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>

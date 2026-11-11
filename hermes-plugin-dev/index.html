@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Plugin Dev — a skill and plugin for building Hermes Agent plugins</title>
+<meta name="description" content="Teach any coding agent to ship Hermes Agent plugins that pass review the first time.">
+<meta name="theme-color" content="#f7f6f1">
+<meta property="og:title" content="Hermes Plugin Dev — a skill and plugin for building Hermes Agent plugins">
+<meta property="og:description" content="Teach any coding agent to ship Hermes Agent plugins that pass review the first time.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="doc-head">
+  <nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../stitchslop/" rel="prev" aria-label="Previous entry: stitchslop"><span aria-hidden="true">←</span> <span class="n-txt">stitchslop</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">06/10</span></a>
+  <a class="n-next" href="../assetrizz/" rel="next" aria-label="Next entry: assetrizz"><span class="n-txt">assetrizz</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+</header>
+<div class="sheet">
+  <aside class="toc" aria-label="Contents">
+    <p class="toc-h">Contents</p>
+    <ol><li><a href="#s1"><span>1</span> Scope</a></li><li><a href="#s2"><span>2</span> Sharp edges</a></li><li><a href="#s3"><span>3</span> Contents</a></li><li><a href="#s4"><span>4</span> Tools</a></li><li><a href="#s5"><span>5</span> Applications</a></li><li><a href="#s6"><span>6</span> Measurements</a></li><li><a href="#s7"><span>7</span> Figures</a></li><li><a href="#s8"><span>8</span> Appendix A: submission post</a></li><li><a href="#s9"><span>9</span> Installation</a></li><li><a href="#s10"><span>10</span> References</a></li></ol>
+  </aside>
+  <main id="main">
+    <header class="title-block">
+      <table class="meta">
+        <tr><th scope="row">Document</th><td>HPD · v0.3.1</td><th scope="row">Status</th><td>Submitted to catalog</td></tr>
+        <tr><th scope="row">Plugin id</th><td><code>hermes-plugin-dev</code></td><th scope="row">Requires</th><td>Hermes &gt;=0.21.6</td></tr>
+        <tr><th scope="row">Author</th><td>Kyle Durepos (mojomast)</td><th scope="row">Catalog PR</th><td><a href="https://github.com/NousResearch/hermes-agent/pull/152699">#152699</a></td></tr>
+      </table>
+      <h1>Hermes Plugin Dev</h1>
+      <p class="lede">Teach any coding agent to ship Hermes Agent plugins that pass review the first time.</p>
+      <p class="abstract"><b>Abstract.</b> One Agent Skill and one Hermes plugin, distilled from shipping real community plugins and from the catalog reviews that followed. Any coding agent can load the skill. Installed into Hermes, it also gives the Hermes agent two small, offline tools to build plugins itself.</p>
+    </header>
+
+    <section id="s1" data-reveal>
+      <h2><span>1</span> Scope</h2>
+      <p>Hermes Agent has a powerful plugin system and a reviewed plugin catalog. Getting a plugin from idea to listed means learning a dozen sharp edges the hard way. This repository captures those lessons, each checked against hermes-agent source or the public catalog review threads, in a format every major coding agent can load.</p>
+      <p class="rule"><b>1.1</b> The tools make no network calls, start no subprocesses, use no git and hold no credentials. They write only into the target folder you name.</p>
+      <p class="rule"><b>1.2</b> The security preflight is a heuristic, not a proof.</p>
+    </section>
+
+    <section id="s2" data-reveal>
+      <h2><span>2</span> Sharp edges</h2>
+      <p>Failure modes listed in the README, each one learned the hard way:</p>
+      <ol class="edges">
+        <li>a stray keyword to <code>register_tool</code> and your plugin silently loads with 0 tools</li>
+        <li>a duplicated YAML key that PyYAML quietly &quot;fixes&quot; for you</li>
+        <li>an unquoted commit SHA the catalog validator reads as a number</li>
+        <li>a dashboard API change that won't show up until you restart the gateway</li>
+        <li>a security scan that fails your plugin because your README mentions a scary command word</li>
+        <li>a PR that won't open because of a GitHub limit, not your auth</li>
+        <li>an agent tool that can approve a stranger's device because a lobby message talked it into it</li>
+        <li>a session token that leaks because authedFetch was handed an absolute asset URL</li>
+        <li>a loopback &quot;token-gated&quot; viewer that hands the token to anyone who asks</li>
+        <li>a live pane that starves the Hermes gateway because every poll runs a full capture</li>
+      </ol>
+    </section>
+
+    <section id="s3" data-reveal>
+      <h2><span>3</span> Contents</h2>
+      <dl class="inside">
+        <div><dt>Agent Skill</dt><dd>skills/hermes-plugin-development/: a short core guide plus 13 deep-dive references (manifest, ctx API, all 46 hooks, capabilities and isolation, panes, testing, release and catalog, review lessons, pitfalls, hackathons, worked examples).</dd></div>
+        <div><dt>Template plugin</dt><dd>templates/hello-hermes: a minimal plugin that passes hermes plugins validate and doctor <code>--ci</code> as-is, with a fake-host test, strict-YAML check, version bump script and schema-token meter.</dd></div>
+        <div><dt>Catalog kit</dt><dd>Catalog entry and PR body templates matching the upstream schema, including the 6-screenshot cap.</dd></div>
+        <div><dt>Hermes plugin</dt><dd>plugin.yaml + register(ctx) at the repo root: bundles the skill and adds 2 lean tools (190 o200k tokens total).</dd></div>
+      </dl>
+      <h3>3.1 Features</h3>
+      <ul class="feat"><li>Bundled hermes-plugin-development skill that any coding agent can load, plus two offline Hermes tools</li><li><code>hpd_scaffold</code>: start a plugin from a validated hello-hermes template</li><li><code>hpd_check</code>: lint manifests, catalog entries, security preflight, and schema token cost</li><li>v0.3.1: <code>hpd_check</code> measures schema tokens statically from the AST and never imports the target plugin</li><li>Import-based measure is only on a user-run CLI: hermes hpd check &lt;dir&gt; <code>--execute</code></li><li>Catalog kit and PR body templates, including the 6-screenshot cap</li><li>No network, subprocesses, or credentials; writes only into the target folder you name</li></ul>
+    </section>
+
+    <section id="s4" data-reveal>
+      <h2><span>4</span> Tools</h2>
+      <div class="tool">
+        <p class="sig"><code>hpd_scaffold(target_dir, name)</code></p>
+        <p>Creates a new plugin from the template, renamed, with a catalog entry and PR body stub. Writes only inside <code>target_dir</code>; refuses non-empty dirs; never overwrites.</p>
+      </div>
+      <div class="tool">
+        <p class="sig"><code>hpd_check(path, catalog_entry?)</code></p>
+        <p>Offline lint, read-only. Never imports or executes the target plugin (v0.3.1 measures schema tokens statically from the AST). It inspects:</p>
+        <ul class="checks"><li><span class="box" aria-hidden="true">☐</span> strict YAML</li><li><span class="box" aria-hidden="true">☐</span> manifest rules</li><li><span class="box" aria-hidden="true">☐</span> <code>provides_tools</code> vs registered (static AST)</li><li><span class="box" aria-hidden="true">☐</span> security preflight</li><li><span class="box" aria-hidden="true">☐</span> static schema token cost</li><li><span class="box" aria-hidden="true">☐</span> catalog entry rules: sha, hosts, category, subdir, at most 6 screenshots</li></ul>
+      </div>
+      <div class="tool">
+        <p class="sig"><code>hermes hpd check &lt;dir&gt; [--execute]</code></p>
+        <p>A user-run CLI for the same lint. Default is static. <code>--execute</code> imports <code>register()</code> with a fake host, like <code>hermes plugins doctor</code>. Only use it on code you trust.</p>
+      </div>
+    </section>
+
+    <section id="s5" data-reveal>
+      <h2><span>5</span> Applications</h2>
+      <ol class="apps"><li><span class="num">5.1</span> Ask Hermes (or another coding agent with the skill) to scaffold a new plugin from the hello-hermes template</li><li><span class="num">5.2</span> Lint a plugin in progress with <code>hpd_check</code>: manifest, tools-vs-register, catalog YAML, security preflight, and o200k schema cost</li><li><span class="num">5.3</span> Measure schema tokens without executing the target plugin's code (the v0.3.1 static path)</li><li><span class="num">5.4</span> Follow the catalog kit to write a YAML-only catalog entry and PR body that match upstream review rules</li><li><span class="num">5.5</span> Walk through the README example of exposing local Ollama models as one composable tool, then checking it</li><li><span class="num">5.6</span> Install the skill into Claude Code or another Agent Skills-compatible host using the documented install matrix</li></ol>
+    </section>
+
+    <section id="s6" data-reveal>
+      <h2><span>6</span> Measurements</h2>
+      <table class="data">
+        <caption>Table 1. Figures from the README and v0.3.1 release notes.</caption>
+        <tbody><tr><th scope="row">agent tools</th><td>2</td></tr><tr><th scope="row">o200k schema tokens</th><td>190</td></tr><tr><th scope="row">release</th><td>v0.3.1</td></tr></tbody>
+      </table>
+      <p class="fn">README badge and text, and the v0.3.1 release notes: 2 tools, 190 o200k tokens, measured with tiktoken o200k_base. Unchanged in v0.3.1. README and release notes say tests cover a malicious __init__.py that is not executed on the tool path, and that pytest plus CI run, but they do not publish a test count.</p>
+    </section>
+
+    <section id="s7" data-reveal>
+      <h2><span>7</span> Figures</h2>
+      <ul class="figs" data-gallery aria-label="Hermes Plugin Dev figures">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/hermes-plugin-dev/banner-v3.l.webp" data-orig="../assets/hermes-plugin-dev/img/banner-v3.jpg" data-caption="Hermes Plugin Dev: a skill + plugin for building Hermes plugins." aria-label="Enlarge: Hermes Plugin Dev: a skill + plugin for building Hermes plugins."><img src="../thumbs/hermes-plugin-dev/banner-v3.t.webp" width="640" height="360" alt="Hermes Plugin Dev: a skill + plugin for building Hermes plugins." loading="lazy" decoding="async"></button>
+    <figcaption>Hermes Plugin Dev: a skill + plugin for building Hermes plugins.</figcaption>
+  </figure></li>
+</ul>
+      <p class="fn">The repository ships a banner only; there are no other screenshots.</p>
+    </section>
+
+    <section id="s8" data-reveal>
+      <h2><span>8</span> Appendix A: submission post</h2>
+      <div class="x-embed" data-x-embed>
+  <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+    <p>Hermes Plugin Dev submission post by @ussyverse on X.</p>
+    <a href="https://x.com/ussyverse/status/2120181358073184269">View the submission post on X</a>
+  </blockquote>
+  <p class="x-fallback">No submission video was found for Hermes Plugin Dev, so the X post is embedded instead. If it does not load, <a href="https://x.com/ussyverse/status/2120181358073184269">open the post on X</a>.</p>
+</div>
+    </section>
+
+    <section id="s9" data-reveal>
+      <h2><span>9</span> Installation</h2>
+      <div class="install">
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/hermes-plugin-dev --ref 796a35e4d893b985f1b61d8e11b5ae7e4118bf6f
+hermes plugins enable hermes-plugin-dev</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/hermes-plugin-dev --ref 796a35e4d893b985f1b61d8e11b5ae7e4118bf6f
+hermes plugins enable hermes-plugin-dev">Copy</button></div>
+<p>Skill id: hermes-plugin-dev:hermes-plugin-development.</p>
+<p>Claude Code (from the README install matrix): /plugin marketplace add mojomast/hermes-plugin-dev then /plugin install hermes-plugin-dev@hermes-plugin-dev.</p>
+<p>The security preflight is a heuristic, not a proof.</p>
+</div>
+    </section>
+
+    <section id="s10" data-reveal>
+      <h2><span>10</span> References</h2>
+      <ul class="refs">
+  <li><a href="https://github.com/mojomast/hermes-plugin-dev"><span class="l-label">Repository</span> <span class="l-sub">mojomast/hermes-plugin-dev</span></a></li>
+  <li><a href="https://github.com/mojomast/hermes-plugin-dev/releases/tag/v0.3.1"><span class="l-label">Release v0.3.1</span> <span class="l-sub">796a35e</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2120181358073184269"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/152699"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #152699</span></a></li>
+</ul>
+    </section>
+    <footer class="credit">
+  <p>Hermes Plugin Dev is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/hermes-plugin-dev">plugin repository</a> under its license.</p>
+</footer>
+  </main>
+</div>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>

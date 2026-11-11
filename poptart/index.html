@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>poptart — a Strudel live-coding studio for Hermes Agent</title>
+<meta name="description" content="A local Strudel live-coding studio: write patterns, hit Play, and let your Hermes agent compose alongside you.">
+<meta name="theme-color" content="#0e0f0c">
+<meta property="og:title" content="poptart — a Strudel live-coding studio for Hermes Agent">
+<meta property="og:description" content="A local Strudel live-coding studio: write patterns, hit Play, and let your Hermes agent compose alongside you.">
+<meta property="og:image" content="../assets/poptart/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="transport" aria-label="Page toy transport">
+  <span class="brand">poptart<span class="dot" aria-hidden="true">●</span></span>
+  <button type="button" class="t-play" aria-pressed="false">▶ Play / apply</button>
+  <button type="button" class="t-stop">■ Stop</button>
+  <button type="button" class="t-mute" aria-pressed="false">Mute</button>
+  <label class="t-bpm">BPM <input type="number" min="60" max="200" value="126" inputmode="numeric"></label>
+  <span class="t-state" aria-live="polite">stopped · nothing plays until you press Play</span>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <p class="comment">// Hermes Strudel Studio · catalog id <code>hermes-strudel-studio</code> · v0.2.5</p>
+    <h1 id="t" class="word" aria-label="poptart"><span style="--i:0" aria-hidden="true">p</span><span style="--i:1" aria-hidden="true">o</span><span style="--i:2" aria-hidden="true">p</span><span style="--i:3" aria-hidden="true">t</span><span style="--i:4" aria-hidden="true">a</span><span style="--i:5" aria-hidden="true">r</span><span style="--i:6" aria-hidden="true">t</span></h1>
+    <p class="lede">A local Strudel live-coding studio: write patterns, hit Play, and let your Hermes agent compose alongside you.</p>
+    <div class="seq" role="group" aria-labelledby="seq-h">
+      <p id="seq-h" class="seq-h"><span class="kw">toy</span> a 16-step pattern on this page, made with Web Audio. It isn't poptart, it borrows the idea: edit, press Play, watch the tokens light up.</p>
+      <div class="row" data-row="bd">
+        <span class="rname">bd</span>
+        <div class="steps"><button type="button" class="st beat" aria-pressed="true" aria-label="bd step 1"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 2"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 3"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 4"></button><button type="button" class="st beat" aria-pressed="true" aria-label="bd step 5"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 6"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 7"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 8"></button><button type="button" class="st beat" aria-pressed="true" aria-label="bd step 9"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 10"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 11"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 12"></button><button type="button" class="st beat" aria-pressed="true" aria-label="bd step 13"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 14"></button><button type="button" class="st" aria-pressed="false" aria-label="bd step 15"></button><button type="button" class="st" aria-pressed="true" aria-label="bd step 16"></button></div>
+        <code class="mini" aria-label="bd mini-notation"></code>
+      </div>
+      <div class="row" data-row="sd">
+        <span class="rname">sd</span>
+        <div class="steps"><button type="button" class="st beat" aria-pressed="false" aria-label="sd step 1"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 2"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 3"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 4"></button><button type="button" class="st beat" aria-pressed="true" aria-label="sd step 5"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 6"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 7"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 8"></button><button type="button" class="st beat" aria-pressed="false" aria-label="sd step 9"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 10"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 11"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 12"></button><button type="button" class="st beat" aria-pressed="true" aria-label="sd step 13"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 14"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 15"></button><button type="button" class="st" aria-pressed="false" aria-label="sd step 16"></button></div>
+        <code class="mini" aria-label="sd mini-notation"></code>
+      </div>
+      <div class="row" data-row="hh">
+        <span class="rname">hh</span>
+        <div class="steps"><button type="button" class="st beat" aria-pressed="false" aria-label="hh step 1"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 2"></button><button type="button" class="st" aria-pressed="true" aria-label="hh step 3"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 4"></button><button type="button" class="st beat" aria-pressed="false" aria-label="hh step 5"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 6"></button><button type="button" class="st" aria-pressed="true" aria-label="hh step 7"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 8"></button><button type="button" class="st beat" aria-pressed="false" aria-label="hh step 9"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 10"></button><button type="button" class="st" aria-pressed="true" aria-label="hh step 11"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 12"></button><button type="button" class="st beat" aria-pressed="false" aria-label="hh step 13"></button><button type="button" class="st" aria-pressed="false" aria-label="hh step 14"></button><button type="button" class="st" aria-pressed="true" aria-label="hh step 15"></button><button type="button" class="st" aria-pressed="true" aria-label="hh step 16"></button></div>
+        <code class="mini" aria-label="hh mini-notation"></code>
+      </div>
+      <div class="row" data-row="blip">
+        <span class="rname">blip</span>
+        <div class="steps"><button type="button" class="st beat" aria-pressed="true" aria-label="blip step 1"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 2"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 3"></button><button type="button" class="st" aria-pressed="true" aria-label="blip step 4"></button><button type="button" class="st beat" aria-pressed="false" aria-label="blip step 5"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 6"></button><button type="button" class="st" aria-pressed="true" aria-label="blip step 7"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 8"></button><button type="button" class="st beat" aria-pressed="false" aria-label="blip step 9"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 10"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 11"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 12"></button><button type="button" class="st beat" aria-pressed="true" aria-label="blip step 13"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 14"></button><button type="button" class="st" aria-pressed="true" aria-label="blip step 15"></button><button type="button" class="st" aria-pressed="false" aria-label="blip step 16"></button></div>
+        <code class="mini" aria-label="blip mini-notation"></code>
+      </div>
+    </div>
+  </section>
+
+  <section class="pane why" data-reveal aria-labelledby="why-h">
+    <h2 id="why-h"><span class="sec">section</span> "Why poptart"</h2>
+    <div class="lines">
+      <p>Strudel is a fantastic way to make music in code. poptart turns it into a <em>workspace</em>: tracks that persist, revisions that guard against overwrites, sections you can switch between, and a clean agent API.</p>
+      <p>Your Hermes agent can draft a beat, add a break or change the tempo. You stay in control, because nothing plays until <em>you</em> press Play.</p>
+      <p class="c">// built on Strudel by the TidalCycles community · AGPL-3.0-or-later</p>
+    </div>
+  </section>
+
+  <section class="pane feats" data-reveal aria-labelledby="feat-h">
+    <h2 id="feat-h"><span class="sec">section</span> "Main"</h2>
+    <ol class="lines code-lines">
+      <li><span class="op">+</span> Live-coding Strudel/JS editor with tempo, Play/apply, Stop, and Mute</li>
+      <li><span class="op">+</span> Scheduler-synced mini-notation highlights in the Hermes accent</li>
+      <li><span class="op">+</span> Invalid edits keep the last good pattern playing and show the error separately</li>
+      <li><span class="op">+</span> Persistent track library with revisions, snapshots, and named sections</li>
+      <li><span class="op">+</span> One composable tool, <code>poptart_studio</code>, plus an opt-in Desktop/Webapp pane</li>
+      <li><span class="op">+</span> Local-first: loopback-only Node sidecar, private per-install token, no hosted AI service</li>
+    </ol>
+  </section>
+
+  <section class="pane ops" data-reveal aria-labelledby="ops-h">
+    <h2 id="ops-h"><span class="sec">tool</span> poptart_studio({ op, input })</h2>
+    <p class="note">One tool, eleven ops, a 127-token schema. There is deliberately no delete, shell, remote-playback or audio-export op, and agent edits never auto-play.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">op</th><th scope="col">input</th><th scope="col">what it does</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>list</code></th><td><code>{}</code></td><td>List tracks</td></tr>
+          <tr><th scope="row"><code>get</code></th><td><code>{trackId}</code></td><td>Read one track (code, tempo, sections, revision)</td></tr>
+          <tr><th scope="row"><code>create</code></th><td><code>{title, code, tempo, sections}</code></td><td>New track. Tempo 20–400</td></tr>
+          <tr><th scope="row"><code>update</code></th><td><code>{trackId, expectedRevision, changes}</code></td><td>Change title, code, tempo or sections</td></tr>
+          <tr><th scope="row"><code>update_section</code></th><td><code>{trackId, expectedRevision, sectionId, section}</code></td><td>Edit one section</td></tr>
+          <tr><th scope="row"><code>sections</code></th><td><code>{trackId}</code></td><td>List a track's sections</td></tr>
+          <tr><th scope="row"><code>snapshot</code></th><td><code>{trackId, expectedRevision}</code></td><td>Save a snapshot of the current revision</td></tr>
+          <tr><th scope="row"><code>snapshots</code></th><td><code>{trackId}</code></td><td>List snapshots</td></tr>
+          <tr><th scope="row"><code>restore</code></th><td><code>{trackId, snapshotId, expectedRevision}</code></td><td>Restore a snapshot</td></tr>
+          <tr><th scope="row"><code>analyze</code></th><td><code>{trackId}</code></td><td>Static counts (no audio analysis)</td></tr>
+          <tr><th scope="row"><code>export</code></th><td><code>{trackId}</code></td><td>Export the code (never audio)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="pane library" data-reveal aria-labelledby="lib-h">
+    <h2 id="lib-h"><span class="sec">library</span> things to make</h2>
+    <ul class="tracks">
+      <li><span class="tno">track 01</span><p>Write a Strudel pattern in the studio and press Play; nothing sounds until you do</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+      <li><span class="tno">track 02</span><p>Ask Hermes to draft a beat, add a break, or change the tempo through <code>poptart_studio</code>, then apply it yourself</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+      <li><span class="tno">track 03</span><p>Keep several tracks with snapshots and switch named sections such as Intro, Main, or Break</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+      <li><span class="tno">track 04</span><p>Watch tokens light up as they play, then edit without killing the groove if the new code is invalid</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+      <li><span class="tno">track 05</span><p>Use the right-hand library layout shown in the README screenshots</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+      <li><span class="tno">track 06</span><p>Run the studio as a standalone app (Node 22+) or as the catalog subdirectory integration/hermes</p><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></li>
+    </ul>
+  </section>
+
+  <section class="pane demo" data-reveal aria-labelledby="demo-h">
+    <h2 id="demo-h"><span class="sec">section</span> "Break" · the demo</h2>
+    <figure class="vid">
+  <video controls preload="none" playsinline width="1280" height="720" poster="../assets/poptart/poster.jpg" aria-label="poptart submission video, 0:40">
+    <source src="../assets/poptart/video.mp4" type="video/mp4">
+    <a href="../assets/poptart/video.mp4">Download the poptart submission video (MP4)</a>
+  </video>
+  <figcaption>Submission video · 0:40 · <a href="https://x.com/ussyverse/status/2118847400152572123">original post on X</a></figcaption>
+</figure>
+  </section>
+
+  <section class="pane meters" data-reveal aria-labelledby="stats-h">
+    <h2 id="stats-h"><span class="sec">analyze</span> static counts</h2>
+    <ul class="readouts">
+      <li><strong>1</strong><span>agent tool</span></li>
+      <li><strong>127</strong><span>o200k schema tokens</span></li>
+      <li><strong>7</strong><span>node service tests</span></li>
+      <li><strong>12</strong><span>python plugin tests</span></li>
+      <li><strong>0:40</strong><span>submission video</span></li>
+      <li><strong>v0.2.5</strong><span>release</span></li>
+    </ul>
+    <p class="note">README Testing section: npm test (Node service tests, 7); python -m pytest -q tests/plugin (Python plugin tests, 12). Additional Playwright / desktop / standalone / browser suites are documented without a single combined count.</p>
+  </section>
+
+  <section class="pane snaps" data-reveal aria-labelledby="snap-h">
+    <h2 id="snap-h"><span class="sec">snapshots</span> screenshots</h2>
+    <ul class="gallery" data-gallery aria-label="poptart screenshots">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/poptart/hermes-webapp.l.webp" data-orig="../assets/poptart/img/hermes-webapp.png" data-caption="Hermes webapp with a chat using poptart_studio on the left and the docked studio pane playing a track on the right." aria-label="Enlarge: Hermes webapp with a chat using poptart_studio on the left and the docked studio pane playing a track on the right."><img src="../thumbs/poptart/hermes-webapp.t.webp" width="640" height="422" alt="Hermes webapp with a chat using poptart_studio on the left and the docked studio pane playing a track on the right." loading="lazy" decoding="async"></button>
+    <figcaption>Hermes webapp with a chat using poptart_studio on the left and the docked studio pane playing a track on the right.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/poptart/studio-playing.l.webp" data-orig="../assets/poptart/img/studio-playing.png" data-caption="Close-up of the studio pane playing a 126 BPM, three-section track, library on the right." aria-label="Enlarge: Close-up of the studio pane playing a 126 BPM, three-section track, library on the right."><img src="../thumbs/poptart/studio-playing.t.webp" width="640" height="902" alt="Close-up of the studio pane playing a 126 BPM, three-section track, library on the right." loading="lazy" decoding="async"></button>
+    <figcaption>Close-up of the studio pane playing a 126 BPM, three-section track, library on the right.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/poptart/layout-right-library.l.webp" data-orig="../assets/poptart/img/layout-right-library.png" data-caption="Studio layout with the library on the right (packaged player, headless test)." aria-label="Enlarge: Studio layout with the library on the right (packaged player, headless test)."><img src="../thumbs/poptart/layout-right-library.t.webp" width="640" height="458" alt="Studio layout with the library on the right (packaged player, headless test)." loading="lazy" decoding="async"></button>
+    <figcaption>Studio layout with the library on the right (packaged player, headless test).</figcaption>
+  </figure></li>
+  <li class="g-item g-4"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/poptart/plugin-card.l.webp" data-orig="../assets/poptart/img/plugin-card.png" data-caption="Plugin card in Hermes, installed and enabled (v0.2.3)." aria-label="Enlarge: Plugin card in Hermes, installed and enabled (v0.2.3)."><img src="../thumbs/poptart/plugin-card.t.webp" width="640" height="742" alt="Plugin card in Hermes, installed and enabled (v0.2.3)." loading="lazy" decoding="async"></button>
+    <figcaption>Plugin card in Hermes, installed and enabled (v0.2.3).</figcaption>
+  </figure></li>
+  <li class="g-item g-5"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/poptart/banner.l.webp" data-orig="../assets/poptart/img/banner.png" data-caption="poptart banner: Strudel live-coding studio for Hermes." aria-label="Enlarge: poptart banner: Strudel live-coding studio for Hermes."><img src="../thumbs/poptart/banner.t.webp" width="640" height="200" alt="poptart banner: Strudel live-coding studio for Hermes." loading="lazy" decoding="async"></button>
+    <figcaption>poptart banner: Strudel live-coding studio for Hermes.</figcaption>
+  </figure></li>
+</ul>
+  </section>
+
+  <section class="pane inst" data-reveal aria-labelledby="inst-h">
+    <h2 id="inst-h"><span class="sec">export</span> install</h2>
+    <div class="install">
+<p>The installable plugin is the self-contained integration/hermes directory, not the repo root. Catalog installs need Node 22+, not npm or a local build.</p>
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/poptart --ref 42356ddb9eff2eea2419bbd223ee159f353e4632
+# once listed, the catalog name is hermes-strudel-studio:
+# hermes plugins install hermes-strudel-studio --enable
+hermes plugins enable hermes-strudel-studio</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/poptart --ref 42356ddb9eff2eea2419bbd223ee159f353e4632
+hermes plugins enable hermes-strudel-studio">Copy</button></div>
+<p>License is AGPL-3.0-or-later with toaster GPL notices; review LICENSE and NOTICE before redistribute. See source-integration.md for packaging details.</p>
+</div>
+    <ul class="links">
+  <li><a href="https://github.com/mojomast/poptart"><span class="l-label">Repository</span> <span class="l-sub">mojomast/poptart</span></a></li>
+  <li><a href="https://github.com/mojomast/poptart/releases/tag/v0.2.5"><span class="l-label">Release v0.2.5</span> <span class="l-sub">42356dd</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2118847400152572123"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/150357"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #150357</span></a></li>
+</ul>
+  </section>
+</main>
+<footer class="credit">
+  <p>poptart is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/poptart">plugin repository</a> under its license.</p>
+</footer>
+<nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../hermagotchi/" rel="prev" aria-label="Previous entry: Hermagotchi"><span aria-hidden="true">←</span> <span class="n-txt">Hermagotchi</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">03/10</span></a>
+  <a class="n-next" href="../hyperrizz/" rel="next" aria-label="Next entry: hyperrizz"><span class="n-txt">hyperrizz</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+<script src="seq.js" defer></script>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>
