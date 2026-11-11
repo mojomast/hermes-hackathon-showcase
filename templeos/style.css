@@ -1,0 +1,100 @@
+/* Strict 16-colour VGA palette. */
+:root {
+  --c0: #000000; --c1: #0000aa; --c2: #00aa00; --c3: #00aaaa; --c4: #aa0000; --c5: #aa00aa; --c6: #aa5500; --c7: #aaaaaa;
+  --c8: #555555; --c9: #5555ff; --c10: #55ff55; --c11: #55ffff; --c12: #ff5555; --c13: #ff55ff; --c14: #ffff55; --c15: #ffffff;
+  --mono: 'VT323', monospace; --pix: 'Press Start 2P', monospace; --focus: var(--c14);
+  --lb-bg: var(--c0); --lb-fg: var(--c15); --lb-font: var(--mono); --lb-border: 4px double var(--c11);
+  --lb-backdrop: rgba(0,0,170,.85);
+}
+html { background: var(--c1); color-scheme: light; }
+body { color: var(--c1); font: 400 22px/1.25 var(--mono); }
+a { color: var(--c4); }
+a:hover { background: var(--c14); }
+code { color: var(--c5); font-family: var(--mono); font-size: 1em; }
+img { image-rendering: pixelated; }
+
+.statusbar { display: flex; gap: 1rem; justify-content: space-between; background: var(--c1); color: var(--c15); font: 10px/1.6 var(--pix); padding: 4px 8px; border-bottom: 2px solid var(--c11); }
+.sb-user { background: var(--c2); color: var(--c15); padding: 0 6px; }
+.sb-r { color: var(--c14); }
+
+.entry-nav { display: flex; justify-content: space-between; gap: 8px; max-width: 664px; margin: 12px auto; padding: 0 12px; font: 10px/1.6 var(--pix); }
+.entry-nav a { color: var(--c15); text-decoration: none; padding: 4px 6px; border: 2px solid var(--c11); background: var(--c1); }
+.entry-nav a:hover, .entry-nav a:focus-visible { background: var(--c14); color: var(--c1); }
+.n-count { color: var(--c14); }
+.entry-nav a:hover .n-count { color: var(--c4); }
+
+.screen { max-width: 664px; margin: 0 auto 32px; background: var(--c15); border: 4px double var(--c1); outline: 4px solid var(--c11); padding: 12px; }
+
+.boot { background: var(--c0); color: var(--c7); padding: 16px; margin-bottom: 16px; }
+.bootlog { margin: 0 0 12px; font: 18px/1.15 var(--mono); color: var(--c10); white-space: pre-wrap; }
+.boot h1 { font: 28px/1.4 var(--pix); }
+.y { color: var(--c14); } .b { color: var(--c11); } .w { display: block; font-size: 14px; color: var(--c15); }
+.lede { color: var(--c15); margin: 10px 0; }
+.mem { color: var(--c7); font-size: 18px; border-top: 2px solid var(--c8); padding-top: 8px; }
+.js .bootlog { overflow: hidden; }
+.js .boot h1 .y::after { content: '_'; color: var(--c15); animation: cur 1s steps(2) infinite; }
+@keyframes cur { 50% { opacity: 0; } }
+
+.launcher { background: var(--c0); color: var(--c15); margin-bottom: 16px; }
+.lhead { background: var(--c1); color: var(--c14); font: 10px/1.7 var(--pix); padding: 6px 10px; }
+.lhead span { color: var(--c11); }
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; padding: 10px 6px; }
+.grid button { width: 100%; height: 100%; min-height: 72px; background: var(--c0); color: var(--c15); border: 2px solid transparent; cursor: pointer; display: grid; place-content: center; gap: 4px; padding: 4px 2px; font: 18px/1 var(--mono); text-align: center; }
+.grid button .ak { color: var(--c7); }
+.grid button:hover, .grid button.sel, .grid button:focus-visible { border-color: var(--c14); outline: 0; }
+.grid button.sel .an, .grid button:focus-visible .an { color: var(--c14); }
+.grid li:nth-child(6n+1) .an { color: var(--c14); }
+.lfoot { color: var(--c11); padding: 4px 10px 8px; min-height: 2.5em; }
+.lnote { color: var(--c8); font-size: 16px; padding: 0 10px 8px; }
+
+.win { border: 4px double var(--c1); margin-bottom: 16px; background: var(--c15); }
+.tbar { display: flex; justify-content: space-between; background: var(--c1); color: var(--c15); font: 10px/1.8 var(--pix); padding: 2px 6px; }
+.x { color: var(--c14); }
+.wbody { padding: 10px 12px 12px; }
+.wbody p { margin-bottom: 10px; }
+.wbody h3 { font: 10px/1.6 var(--pix); color: var(--c4); margin: 12px 0 6px; }
+.dl { list-style: none; padding: 0; }
+.dl li { padding-left: 24px; position: relative; margin-bottom: 6px; }
+.dl li::before { content: '$'; position: absolute; left: 4px; color: var(--c2); }
+.dl.num { counter-reset: n; }
+.dl.num li { counter-increment: n; padding-left: 32px; }
+.dl.num li::before { content: counter(n) '.'; color: var(--c4); }
+.modes div { display: grid; grid-template-columns: 9em 1fr; gap: 8px; border-top: 1px dashed var(--c7); padding: 4px 0; }
+.modes dt { color: var(--c2); }
+.modes dd { margin: 0; }
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 18px; width: 100%; }
+th, td { border: 2px solid var(--c1); padding: 2px 6px; text-align: left; vertical-align: top; }
+th { background: var(--c11); color: var(--c1); font-weight: 400; }
+tr:first-child th:nth-child(2) { background: var(--c14); }
+
+.vwin .wbody { background: var(--c0); }
+.vid figcaption { color: var(--c7); padding-top: 6px; font-size: 18px; }
+.vid figcaption a { color: var(--c11); }
+.vid video { image-rendering: auto; }
+
+.stats { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+.stats b { color: var(--c4); font: 14px var(--pix); }
+.small { font-size: 18px; color: var(--c8); margin-top: 8px; }
+
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.shots figure { border: 2px solid var(--c1); background: var(--c0); }
+.shots img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top left; }
+.shots figcaption { background: var(--c15); color: var(--c1); font-size: 17px; line-height: 1.1; padding: 4px 6px; }
+.shots .g-open:hover img, .shots .g-open:focus-visible img { outline: 2px solid var(--c14); }
+
+.install pre { background: var(--c0); color: var(--c10); padding: 8px 10px; font: 18px/1.2 var(--mono); margin-bottom: 10px; border: 2px solid var(--c8); }
+.copy { background: var(--c14); color: var(--c1); border: 2px solid var(--c1); font: 8px var(--pix); padding: 4px 6px; cursor: pointer; }
+.links { display: grid; gap: 4px; }
+.links a { display: block; text-decoration: none; padding: 2px 6px; border: 2px solid transparent; }
+.links a:hover, .links a:focus-visible { background: var(--c14); border-color: var(--c4); }
+.l-label { text-decoration: underline; } .l-sub { color: var(--c8); }
+
+.credit { font-size: 17px; color: var(--c8); border-top: 4px double var(--c1); padding-top: 8px; }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .stats, .shots { grid-template-columns: 1fr; }
+  .boot h1 { font-size: 20px; }
+  .statusbar .sb-r { display: none; }
+}

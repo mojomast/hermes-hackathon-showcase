@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stitchslop — drive the Stitch Slop embroidery editor from Hermes Agent</title>
+<meta name="description" content="Watch the real Stitch Slop editor in a pane, run its own commands, digitize artwork, letter a ring, and export DST / PES.">
+<meta name="theme-color" content="#efe7d6">
+<meta property="og:title" content="stitchslop — drive the Stitch Slop embroidery editor from Hermes Agent">
+<meta property="og:description" content="Watch the real Stitch Slop editor in a pane, run its own commands, digitize artwork, letter a ring, and export DST / PES.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../hyperrizz/" rel="prev" aria-label="Previous entry: hyperrizz"><span aria-hidden="true">←</span> <span class="n-txt">hyperrizz</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">05/10</span></a>
+  <a class="n-next" href="../hermes-plugin-dev/" rel="next" aria-label="Next entry: Hermes Plugin Dev"><span class="n-txt">Hermes Plugin Dev</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <div class="hero-copy">
+      <p class="eyebrow">Hermes Agent plugin · v0.2.2</p>
+      <h1 id="t" class="sr-only">stitchslop</h1>
+      <svg class="stitched" viewBox="0 0 620 150" role="img" aria-label="stitchslop">
+        <text x="6" y="118" class="satin">stitchslop</text>
+        <text x="6" y="118" class="run">stitchslop</text>
+      </svg>
+      <p class="lede">Drive the embroidery app from chat.</p>
+      <p class="sub">Watch the real Stitch Slop editor in a pane, run its own commands, digitize artwork, letter a ring, and export DST / PES.</p>
+      <p class="spools">
+        <span style="--c:#1d3a8a">4 tools</span>
+        <span style="--c:#b4532a">477 o200k tokens</span>
+        <span style="--c:#3c7a52">0 core deps</span>
+        <span style="--c:#d9a441">DST · PES</span>
+      </p>
+    </div>
+    <div class="hoop">
+      <div class="hoop-in">
+        <img src="../thumbs/stitchslop/stitch.l.webp" srcset="../thumbs/stitchslop/stitch.t.webp 565w, ../thumbs/stitchslop/stitch.l.webp 565w" sizes="100vw" width="565" height="588" alt="Two-colour embroidered badge reading Stitch Slop × Hermes Agent — Digitize, Drive, Export — around a spiral figure holding a staff." fetchpriority="high" decoding="async">
+      </div>
+      <span class="screw" aria-hidden="true"></span>
+      <p class="hoop-cap">Made end to end from a chat session, as shown in the README.</p>
+    </div>
+  </section>
+
+  <section class="swatch what" data-reveal aria-labelledby="what-h">
+    <h2 id="what-h">Why it exists</h2>
+    <div class="two">
+      <p><a href="https://www.stitchslop.com">Stitch Slop</a> is a browser embroidery digitizer whose designs live in a tab. A chat agent can't reach that tab: the site refuses to be framed, and even if it didn't, an agent can't click.</p>
+      <p>This plugin solves both halves. The tab dials out over Stitch Slop's published loopback WebSocket bridge, which this plugin implements in the standard library. A plugin-owned Chrome draws the real app on a private X display, and the pane streams it and forwards your clicks and keys back. You see the design, the agent edits it, and you take over whenever you like.</p>
+    </div>
+  </section>
+
+  <section class="patches-sec" data-reveal aria-labelledby="feat-h">
+    <h2 id="feat-h">Patches</h2>
+    <ul class="patches">
+      <li class="p0"><p>Four tools and no core dependencies</p></li>
+      <li class="p1"><p>Live pane that streams a dedicated Chrome window of the Stitch Slop editor and forwards clicks and keys</p></li>
+      <li class="p2"><p>Bridge protocol for the official Stitch Slop agent panel (loopback WebSocket)</p></li>
+      <li class="p3"><p>Digitize artwork, arc typesetting / lettering, and export machine stitch files (DST / PES)</p></li>
+      <li class="p0"><p>First pairing is pane-only: agent tools refuse a model-supplied token</p></li>
+      <li class="p1"><p>Bundled skill covering the digitizing workflow</p></li>
+    </ul>
+  </section>
+
+  <section class="swatch pattern" data-reveal aria-labelledby="uc-h">
+    <h2 id="uc-h">Pattern instructions</h2>
+    <ol class="steps">
+      <li><p>Open the Stitch Slop editor in the Hermes pane and watch the live design while you talk to the agent</p></li>
+      <li><p>Digitize artwork into a machine stitch file and export DST or PES</p></li>
+      <li><p>Letter a ring or other curved text with the bundled arc-typesetting script</p></li>
+      <li><p>Run the editor's own commands through <code>stitchslop_call</code> after a hand-paired connection</p></li>
+      <li><p>Reproduce the two-colour badge in the README (assets/stitch.jpg), which was made end to end from a chat session</p></li>
+      <li><p>Check bridge and browser status with <code>stitchslop_status</code> before starting work</p></li>
+    </ol>
+  </section>
+
+  <section class="tools-sec" data-reveal aria-labelledby="tools-h">
+    <h2 id="tools-h">The four needles</h2>
+    <dl class="needles">
+      <div><dt><code>stitchslop_status</code></dt><dd>Bridge, tab, Chrome, relay and pane in one call. Start here when something looks wrong.</dd></div>
+      <div><dt><code>stitchslop_connect</code></dt><dd>Starts the bridge and waits for the tab using the stored pairing. Refuses a model-supplied token.</dd></div>
+      <div><dt><code>stitchslop_call</code></dt><dd>Runs one app verb (scene.describe, background.digitize, design.export, …). Images and exports are written to disk and returned as paths.</dd></div>
+      <div><dt><code>stitchslop_browser</code></dt><dd>Starts and stops the pane: Xvfb + Chrome + capture relay, returns viewerUrl.</dd></div>
+    </dl>
+    <p class="aside">The app owns the command list: over 80 verbs. <code>stitchslop_call("x.list")</code> answers with every real name.</p>
+  </section>
+
+  <section class="swatch post" data-reveal aria-labelledby="post-h">
+    <h2 id="post-h">The submission post</h2>
+    <div class="x-embed" data-x-embed>
+  <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+    <p>stitchslop submission post by @ussyverse on X.</p>
+    <a href="https://x.com/ussyverse/status/2119790420704239898">View the submission post on X</a>
+  </blockquote>
+  <p class="x-fallback">No submission video was found for stitchslop, so the X post is embedded instead. If it does not load, <a href="https://x.com/ussyverse/status/2119790420704239898">open the post on X</a>.</p>
+</div>
+  </section>
+
+  <section class="board" data-reveal aria-labelledby="gal-h">
+    <h2 id="gal-h">Pinboard</h2>
+    <ul class="pins" data-gallery aria-label="stitchslop screenshots">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/stitchslop/pane.l.webp" data-orig="../assets/stitchslop/img/pane.jpg" data-caption="The Stitch Slop editor running in the Hermes preview pane." aria-label="Enlarge: The Stitch Slop editor running in the Hermes preview pane."><img src="../thumbs/stitchslop/pane.t.webp" width="640" height="400" alt="The Stitch Slop editor running in the Hermes preview pane." loading="lazy" decoding="async"></button>
+    <figcaption>The Stitch Slop editor running in the Hermes preview pane.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/stitchslop/stitch.l.webp" data-orig="../assets/stitchslop/img/stitch.jpg" data-caption="Two-colour embroidered badge reading Stitch Slop × Hermes Agent — Digitize, Drive, Export — around a spiral figure holding a staff." aria-label="Enlarge: Two-colour embroidered badge reading Stitch Slop × Hermes Agent — Digitize, Drive, Export — around a spiral figure holding a staff."><img src="../thumbs/stitchslop/stitch.t.webp" width="565" height="588" alt="Two-colour embroidered badge reading Stitch Slop × Hermes Agent — Digitize, Drive, Export — around a spiral figure holding a staff." loading="lazy" decoding="async"></button>
+    <figcaption>Two-colour embroidered badge reading Stitch Slop × Hermes Agent — Digitize, Drive, Export — around a spiral figure holding a staff.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/stitchslop/diagram.l.webp" data-orig="../assets/stitchslop/img/diagram.png" data-caption="Architecture: tab to bridge to tools; Chrome to relay to pane." aria-label="Enlarge: Architecture: tab to bridge to tools; Chrome to relay to pane."><img src="../thumbs/stitchslop/diagram.t.webp" width="640" height="280" alt="Architecture: tab to bridge to tools; Chrome to relay to pane." loading="lazy" decoding="async"></button>
+    <figcaption>Architecture: tab to bridge to tools; Chrome to relay to pane.</figcaption>
+  </figure></li>
+  <li class="g-item g-4"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/stitchslop/banner.l.webp" data-orig="../assets/stitchslop/img/banner.png" data-caption="stitchslop for Hermes Agent banner." aria-label="Enlarge: stitchslop for Hermes Agent banner."><img src="../thumbs/stitchslop/banner.t.webp" width="640" height="176" alt="stitchslop for Hermes Agent banner." loading="lazy" decoding="async"></button>
+    <figcaption>stitchslop for Hermes Agent banner.</figcaption>
+  </figure></li>
+  <li class="g-item g-5"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/stitchslop/social.l.webp" data-orig="../assets/stitchslop/img/social.png" data-caption="stitchslop social card." aria-label="Enlarge: stitchslop social card."><img src="../thumbs/stitchslop/social.t.webp" width="640" height="320" alt="stitchslop social card." loading="lazy" decoding="async"></button>
+    <figcaption>stitchslop social card.</figcaption>
+  </figure></li>
+</ul>
+  </section>
+
+  <section class="label-sec" data-reveal aria-labelledby="inst-h">
+    <div class="care">
+      <h2 id="inst-h">Care label</h2>
+      <div class="install">
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/hermes-stitchslop --ref 51c12d0fd957fb4f40f98253570eb33d791c314c
+hermes plugins enable stitchslop</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/hermes-stitchslop --ref 51c12d0fd957fb4f40f98253570eb33d791c314c
+hermes plugins enable stitchslop">Copy</button></div>
+<p>Then pair once by hand. The agent tool refuses a model-supplied token (<code>pair_via_pane</code>); first pairing is a human action in the pane, as documented in the README. Linux is the documented platform. See source.md for the full pairing and security notes.</p>
+</div>
+      <ul class="stat-line">
+        <li><strong>4</strong> agent tools</li>
+        <li><strong>477</strong> o200k schema tokens</li>
+        <li><strong>v0.2.2</strong> release</li>
+      </ul>
+      <p class="tn">README documents python3 -m unittest discover -s tests and that hermes plugins validate and doctor --ci pass, but does not publish a test count. Core install has no Python dependencies; NumPy and Pillow are an optional art extra.</p>
+    </div>
+    <div class="ribbons">
+      <h3>Threads to follow</h3>
+      <ul class="links">
+  <li><a href="https://github.com/mojomast/hermes-stitchslop"><span class="l-label">Repository</span> <span class="l-sub">mojomast/hermes-stitchslop</span></a></li>
+  <li><a href="https://github.com/mojomast/hermes-stitchslop/releases/tag/v0.2.2"><span class="l-label">Release v0.2.2</span> <span class="l-sub">51c12d0</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2119790420704239898"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/151946"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #151946</span></a></li>
+</ul>
+    </div>
+  </section>
+</main>
+<footer class="credit">
+  <p>stitchslop is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/hermes-stitchslop">plugin repository</a> under its license.</p>
+</footer>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>

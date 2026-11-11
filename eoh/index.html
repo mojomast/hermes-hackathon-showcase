@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eye Of Hermes (EOH) — a live 3D globe for Hermes Agent</title>
+<meta name="description" content="A live 3D globe in the Hermes pane, which the agent can fly, measure, and watch.">
+<meta name="theme-color" content="#06142a">
+<meta property="og:title" content="Eye Of Hermes (EOH) — a live 3D globe for Hermes Agent">
+<meta property="og:description" content="A live 3D globe in the Hermes pane, which the agent can fly, measure, and watch.">
+<meta property="og:image" content="../assets/eoh/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,600&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="chart-top">
+  <nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../bundlebees/" rel="prev" aria-label="Previous entry: bundlebees"><span aria-hidden="true">←</span> <span class="n-txt">bundlebees</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">01/10</span></a>
+  <a class="n-next" href="../hermagotchi/" rel="next" aria-label="Next entry: Hermagotchi"><span class="n-txt">Hermagotchi</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <div class="hero-text">
+      <p class="kicker"><span>Chart No. 01</span> <span>Hermes Agent plugin · id <code>godseye</code></span></p>
+      <h1 id="t">Eye <em>of</em> Hermes</h1>
+      <p class="lede">A live 3D globe in the Hermes pane, which the agent can fly, measure, and watch.</p>
+      <dl class="legend-mini">
+        <div><dt>Release</dt><dd>v0.2.10</dd></div>
+        <div><dt>Tools</dt><dd>11</dd></div>
+        <div><dt>Schema</dt><dd>7,670 o200k</dd></div>
+        <div><dt>Hermes</dt><dd>&gt;=0.23.0</dd></div>
+      </dl>
+      <p class="cta"><a href="#film">Watch the survey film</a> <a href="#install">Install</a></p>
+    </div>
+    <div class="globe-wrap" aria-hidden="true">
+      <canvas id="globe" width="720" height="720"></canvas>
+      <img class="eye" src="../thumbs/eoh/eoh-logo-512.t.webp" width="512" height="512" alt="">
+      <p class="globe-note">Graticule at 15°. Pins mark places shown in the plugin's screenshots.</p>
+    </div>
+  </section>
+
+  <section class="plate what" data-reveal aria-labelledby="what-h">
+    <p class="coord">45°30′N 73°33′W</p>
+    <h2 id="what-h">The survey</h2>
+    <div class="cols">
+      <p>Eye Of Hermes puts a live 3D globe in a Hermes Desktop or Webapp pane, and hands the agent the controls. The plugin (id <code>godseye</code>) drives a running <a href="https://github.com/mojomast/gods-eye-view">God's Eye View</a> checkout. Hermes can fly the camera, drop pins, draw routes and areas, query public data feeds, and leave watches running while you keep talking.</p>
+      <p>HUD summaries are written with the Hermes model through <code>ctx.llm</code>. Overlays live in a sidebar and export as <code>eoh.overlays.v1</code>. Some things are refused outright: person search, face recognition, and tracking an individual.</p>
+    </div>
+  </section>
+
+  <section class="plate legend" data-reveal aria-labelledby="legend-h">
+    <p class="coord">35°41′N 139°41′E</p>
+    <h2 id="legend-h">Legend</h2>
+    <ul class="legend-list">
+      <li><span class="sym sym-0" aria-hidden="true"></span><p>Live 3D globe pane in Hermes Desktop or the Webapp that Hermes can fly, pin, and watch</p></li>
+      <li><span class="sym sym-1" aria-hidden="true"></span><p>11 composable godseye_* tools covering view, query, layers, feeds, annotate, nav, track, scene, watch, capture, and admin</p></li>
+      <li><span class="sym sym-2" aria-hidden="true"></span><p>Public data: aircraft, ships, satellites, earthquakes, fires, weather, infrastructure, and public SDR receivers</p></li>
+      <li><span class="sym sym-3" aria-hidden="true"></span><p>HUD summaries generated with the Hermes model (<code>ctx.llm</code>)</p></li>
+      <li><span class="sym sym-4" aria-hidden="true"></span><p>Overlays sidebar for pins, routes, trails, lines, areas, watches, and scenes, with <code>eoh.overlays.v1</code> import/export</p></li>
+      <li><span class="sym sym-5" aria-hidden="true"></span><p>Director scenes, pin clips (YouTube or X URLs), imagery compare, measure, and <code>fire_check</code></p></li>
+      <li><span class="sym sym-0" aria-hidden="true"></span><p>Person search, face recognition, and tracking an individual are refused</p></li>
+    </ul>
+    <h3 class="tools-h">The eleven instruments</h3>
+    <ol class="tools">
+      <li><span class="deg">000°</span><code>godseye_view</code></li>
+      <li><span class="deg">030°</span><code>godseye_query</code></li>
+      <li><span class="deg">060°</span><code>godseye_layers</code></li>
+      <li><span class="deg">090°</span><code>godseye_feeds</code></li>
+      <li><span class="deg">120°</span><code>godseye_annotate</code></li>
+      <li><span class="deg">150°</span><code>godseye_nav</code></li>
+      <li><span class="deg">180°</span><code>godseye_track</code></li>
+      <li><span class="deg">210°</span><code>godseye_scene</code></li>
+      <li><span class="deg">240°</span><code>godseye_watch</code></li>
+      <li><span class="deg">270°</span><code>godseye_capture</code></li>
+      <li><span class="deg">300°</span><code>godseye_admin</code></li>
+    </ol>
+  </section>
+
+  <section class="plate route" data-reveal aria-labelledby="route-h">
+    <p class="coord">33°52′S 151°12′E</p>
+    <h2 id="route-h">Waypoints <span>· what to ask it for</span></h2>
+    <ol class="waypoints">
+      <li><span class="wp">WP 01</span><p>Ask Hermes to brief a city and fly the globe there — for example brief-and-show Tokyo or San Diego from chat</p></li>
+      <li><span class="wp">WP 02</span><p>Compare before-and-after imagery on the pane, including <code>fire_check</code> (FIRMS plus clearest recent image, then imagery before/after)</p></li>
+      <li><span class="wp">WP 03</span><p>Measure distances or areas on the globe and keep the result on the pane</p></li>
+      <li><span class="wp">WP 04</span><p>Leave an area watch running for quakes, fires, or public aircraft/ships, with alerts quoted as third-party text</p></li>
+      <li><span class="wp">WP 05</span><p>List nearest public SDR receivers (<code>godseye_query</code> <code>op=sdr_receivers</code>) and inspect the public SDR / waterfall layer in Europe or Berlin</p></li>
+      <li><span class="wp">WP 06</span><p>Build a Director scene of pins and routes, or open a pin drawer with an attached clip, from the Overlays sidebar</p></li>
+    </ol>
+  </section>
+
+  <section class="plate film" id="film" data-reveal aria-labelledby="film-h">
+    <p class="coord">52°31′N 13°24′E</p>
+    <h2 id="film-h">Survey film</h2>
+    <figure class="vid">
+  <video controls preload="none" playsinline width="1280" height="720" poster="../assets/eoh/poster.jpg" aria-label="Eye Of Hermes (EOH) submission video, 1:22">
+    <source src="../assets/eoh/video.mp4" type="video/mp4">
+    <a href="../assets/eoh/video.mp4">Download the Eye Of Hermes (EOH) submission video (MP4)</a>
+  </video>
+  <figcaption>Submission video · 1:22 · <a href="https://x.com/ussyverse/status/2118845028910915846">original post on X</a></figcaption>
+</figure>
+  </section>
+
+  <section class="plate soundings" data-reveal aria-labelledby="stats-h">
+    <p class="coord">32°43′N 117°09′W</p>
+    <h2 id="stats-h">Soundings</h2>
+    <ul class="stats">
+      <li><strong>11</strong><span>agent tools</span></li>
+      <li><strong>7,670</strong><span>o200k schema tokens</span></li>
+      <li><strong>1:22</strong><span>submission video</span></li>
+      <li><strong>v0.2.10</strong><span>release</span></li>
+    </ul>
+    <p class="note">The 11 registered schemas are 7670 o200k_base tokens (30986 bytes, 7483 cl100k_base), as stated in the README. README documents how to run pytest and Node tests and mentions GitHub Actions CI in the v0.2.10 release notes, but does not publish a test count.</p>
+    <div class="scale" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><em>0 · 7,670 tokens</em></div>
+  </section>
+
+  <section class="plate atlas" data-reveal aria-labelledby="atlas-h">
+    <p class="coord">51°30′N 0°07′W</p>
+    <h2 id="atlas-h">Atlas plates</h2>
+    <ul class="gallery" data-gallery aria-label="Eye Of Hermes screenshots">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-banner.l.webp" data-orig="../assets/eoh/img/eoh-banner.jpg" data-caption="Eye Of Hermes banner: a winged eye with the Earth as its iris, beside the words EYE OF HERMES and the tagline Ask Hermes. See the world." aria-label="Enlarge: Eye Of Hermes banner: a winged eye with the Earth as its iris, beside the words EYE OF HERMES and the tagline Ask Hermes. See the world."><img src="../thumbs/eoh/eoh-banner.t.webp" width="640" height="360" alt="Eye Of Hermes banner: a winged eye with the Earth as its iris, beside the words EYE OF HERMES and the tagline Ask Hermes. See the world." loading="lazy" decoding="async"></button>
+    <figcaption>Eye Of Hermes banner: a winged eye with the Earth as its iris, beside the words EYE OF HERMES and the tagline Ask Hermes. See the world.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/overlays-sidebar.l.webp" data-orig="../assets/eoh/img/overlays-sidebar.png" data-caption="Eye Of Hermes over London. The Overlays sidebar lists Tower Bridge, Big Ben, and the London Eye, plus the Westminster to Tower Bridge route." aria-label="Enlarge: Eye Of Hermes over London. The Overlays sidebar lists Tower Bridge, Big Ben, and the London Eye, plus the Westminster to Tower Bridge route."><img src="../thumbs/eoh/overlays-sidebar.t.webp" width="640" height="372" alt="Eye Of Hermes over London. The Overlays sidebar lists Tower Bridge, Big Ben, and the London Eye, plus the Westminster to Tower Bridge route." loading="lazy" decoding="async"></button>
+    <figcaption>Eye Of Hermes over London. The Overlays sidebar lists Tower Bridge, Big Ben, and the London Eye, plus the Westminster to Tower Bridge route.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/director-scene.l.webp" data-orig="../assets/eoh/img/director-scene.png" data-caption="Authoring panel for the Tokyo Tower demo after playback, reading Scene run complete, beside a FLIR view of Tokyo." aria-label="Enlarge: Authoring panel for the Tokyo Tower demo after playback, reading Scene run complete, beside a FLIR view of Tokyo."><img src="../thumbs/eoh/director-scene.t.webp" width="640" height="372" alt="Authoring panel for the Tokyo Tower demo after playback, reading Scene run complete, beside a FLIR view of Tokyo." loading="lazy" decoding="async"></button>
+    <figcaption>Authoring panel for the Tokyo Tower demo after playback, reading Scene run complete, beside a FLIR view of Tokyo.</figcaption>
+  </figure></li>
+  <li class="g-item g-4"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/pin-drawer.l.webp" data-orig="../assets/eoh/img/pin-drawer.png" data-caption="Sydney Opera House pin with the drawer open: visitor note, coordinates, and an Official site link." aria-label="Enlarge: Sydney Opera House pin with the drawer open: visitor note, coordinates, and an Official site link."><img src="../thumbs/eoh/pin-drawer.t.webp" width="640" height="372" alt="Sydney Opera House pin with the drawer open: visitor note, coordinates, and an Official site link." loading="lazy" decoding="async"></button>
+    <figcaption>Sydney Opera House pin with the drawer open: visitor note, coordinates, and an Official site link.</figcaption>
+  </figure></li>
+  <li class="g-item g-5"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-sdr-layers-europe.l.webp" data-orig="../assets/eoh/img/eoh-sdr-layers-europe.jpg" data-caption="Eye Of Hermes over Denmark and northern Germany in NOIR style. DATA LAYERS is open with Public SDR on and receiver pins across the region." aria-label="Enlarge: Eye Of Hermes over Denmark and northern Germany in NOIR style. DATA LAYERS is open with Public SDR on and receiver pins across the region."><img src="../thumbs/eoh/eoh-sdr-layers-europe.t.webp" width="640" height="360" alt="Eye Of Hermes over Denmark and northern Germany in NOIR style. DATA LAYERS is open with Public SDR on and receiver pins across the region." loading="lazy" decoding="async"></button>
+    <figcaption>Eye Of Hermes over Denmark and northern Germany in NOIR style. DATA LAYERS is open with Public SDR on and receiver pins across the region.</figcaption>
+  </figure></li>
+  <li class="g-item g-6"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-sdr-waterfall-berlin.l.webp" data-orig="../assets/eoh/img/eoh-sdr-waterfall-berlin.jpg" data-caption="Floating SDR waterfall showing a live OpenWebRX stream from Berlin tuned to 145.500 MHz NBFM, with spectrum, waterfall history, SNR and S-meter." aria-label="Enlarge: Floating SDR waterfall showing a live OpenWebRX stream from Berlin tuned to 145.500 MHz NBFM, with spectrum, waterfall history, SNR and S-meter."><img src="../thumbs/eoh/eoh-sdr-waterfall-berlin.t.webp" width="640" height="360" alt="Floating SDR waterfall showing a live OpenWebRX stream from Berlin tuned to 145.500 MHz NBFM, with spectrum, waterfall history, SNR and S-meter." loading="lazy" decoding="async"></button>
+    <figcaption>Floating SDR waterfall showing a live OpenWebRX stream from Berlin tuned to 145.500 MHz NBFM, with spectrum, waterfall history, SNR and S-meter.</figcaption>
+  </figure></li>
+  <li class="g-item g-7"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-sdr-radio-berlin.l.webp" data-orig="../assets/eoh/img/eoh-sdr-radio-berlin.jpg" data-caption="Eye Of Hermes in NOIR over Berlin with the PUBLIC SDR card open on the Berlin OpenWebRX, playing 145.500 MHz NBFM." aria-label="Enlarge: Eye Of Hermes in NOIR over Berlin with the PUBLIC SDR card open on the Berlin OpenWebRX, playing 145.500 MHz NBFM."><img src="../thumbs/eoh/eoh-sdr-radio-berlin.t.webp" width="640" height="360" alt="Eye Of Hermes in NOIR over Berlin with the PUBLIC SDR card open on the Berlin OpenWebRX, playing 145.500 MHz NBFM." loading="lazy" decoding="async"></button>
+    <figcaption>Eye Of Hermes in NOIR over Berlin with the PUBLIC SDR card open on the Berlin OpenWebRX, playing 145.500 MHz NBFM.</figcaption>
+  </figure></li>
+  <li class="g-item g-8"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-sdr-map-europe.l.webp" data-orig="../assets/eoh/img/eoh-sdr-map-europe.jpg" data-caption="Wider NOIR view over Denmark and northern Germany with Public SDR receiver pins dotted on the globe." aria-label="Enlarge: Wider NOIR view over Denmark and northern Germany with Public SDR receiver pins dotted on the globe."><img src="../thumbs/eoh/eoh-sdr-map-europe.t.webp" width="640" height="360" alt="Wider NOIR view over Denmark and northern Germany with Public SDR receiver pins dotted on the globe." loading="lazy" decoding="async"></button>
+    <figcaption>Wider NOIR view over Denmark and northern Germany with Public SDR receiver pins dotted on the globe.</figcaption>
+  </figure></li>
+  <li class="g-item g-9"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-measure.l.webp" data-orig="../assets/eoh/img/eoh-measure.jpg" data-caption="Five- and ten-minute walk isochrones, a 4.91 hectare box, and a 637 metre label around Marché Bonsecours and Basilique Notre-Dame." aria-label="Enlarge: Five- and ten-minute walk isochrones, a 4.91 hectare box, and a 637 metre label around Marché Bonsecours and Basilique Notre-Dame."><img src="../thumbs/eoh/eoh-measure.t.webp" width="640" height="568" alt="Five- and ten-minute walk isochrones, a 4.91 hectare box, and a 637 metre label around Marché Bonsecours and Basilique Notre-Dame." loading="lazy" decoding="async"></button>
+    <figcaption>Five- and ten-minute walk isochrones, a 4.91 hectare box, and a 637 metre label around Marché Bonsecours and Basilique Notre-Dame.</figcaption>
+  </figure></li>
+  <li class="g-item g-10"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-compare.l.webp" data-orig="../assets/eoh/img/eoh-compare.jpg" data-caption="Swipe compare with Esri Wayback 2014-12-30 on the left and the current view on the right, pins still visible." aria-label="Enlarge: Swipe compare with Esri Wayback 2014-12-30 on the left and the current view on the right, pins still visible."><img src="../thumbs/eoh/eoh-compare.t.webp" width="640" height="568" alt="Swipe compare with Esri Wayback 2014-12-30 on the left and the current view on the right, pins still visible." loading="lazy" decoding="async"></button>
+    <figcaption>Swipe compare with Esri Wayback 2014-12-30 on the left and the current view on the right, pins still visible.</figcaption>
+  </figure></li>
+  <li class="g-item g-11"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-context.l.webp" data-orig="../assets/eoh/img/eoh-context.jpg" data-caption="Context view in the Eye Of Hermes pane." aria-label="Enlarge: Context view in the Eye Of Hermes pane."><img src="../thumbs/eoh/eoh-context.t.webp" width="640" height="568" alt="Context view in the Eye Of Hermes pane." loading="lazy" decoding="async"></button>
+    <figcaption>Context view in the Eye Of Hermes pane.</figcaption>
+  </figure></li>
+  <li class="g-item g-12"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-timeline.l.webp" data-orig="../assets/eoh/img/eoh-timeline.jpg" data-caption="Timeline view in the Eye Of Hermes pane." aria-label="Enlarge: Timeline view in the Eye Of Hermes pane."><img src="../thumbs/eoh/eoh-timeline.t.webp" width="640" height="372" alt="Timeline view in the Eye Of Hermes pane." loading="lazy" decoding="async"></button>
+    <figcaption>Timeline view in the Eye Of Hermes pane.</figcaption>
+  </figure></li>
+  <li class="g-item g-13"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/eoh-header.l.webp" data-orig="../assets/eoh/img/eoh-header.jpg" data-caption="Eye Of Hermes pane header." aria-label="Enlarge: Eye Of Hermes pane header."><img src="../thumbs/eoh/eoh-header.t.webp" width="640" height="568" alt="Eye Of Hermes pane header." loading="lazy" decoding="async"></button>
+    <figcaption>Eye Of Hermes pane header.</figcaption>
+  </figure></li>
+  <li class="g-item g-14"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-brief-and-show-tokyo.l.webp" data-orig="../assets/eoh/img/screenshots-brief-and-show-tokyo.jpg" data-caption="Brief-and-show for Tokyo in Hermes." aria-label="Enlarge: Brief-and-show for Tokyo in Hermes."><img src="../thumbs/eoh/screenshots-brief-and-show-tokyo.t.webp" width="640" height="426" alt="Brief-and-show for Tokyo in Hermes." loading="lazy" decoding="async"></button>
+    <figcaption>Brief-and-show for Tokyo in Hermes.</figcaption>
+  </figure></li>
+  <li class="g-item g-15"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-hermes-chat-brief-san-diego.l.webp" data-orig="../assets/eoh/img/screenshots-hermes-chat-brief-san-diego.jpg" data-caption="Hermes chat briefing San Diego." aria-label="Enlarge: Hermes chat briefing San Diego."><img src="../thumbs/eoh/screenshots-hermes-chat-brief-san-diego.t.webp" width="640" height="426" alt="Hermes chat briefing San Diego." loading="lazy" decoding="async"></button>
+    <figcaption>Hermes chat briefing San Diego.</figcaption>
+  </figure></li>
+  <li class="g-item g-16"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-hermes-chat-tokyo-nvg.l.webp" data-orig="../assets/eoh/img/screenshots-hermes-chat-tokyo-nvg.jpg" data-caption="Hermes chat with the globe over Tokyo in night-vision style." aria-label="Enlarge: Hermes chat with the globe over Tokyo in night-vision style."><img src="../thumbs/eoh/screenshots-hermes-chat-tokyo-nvg.t.webp" width="640" height="568" alt="Hermes chat with the globe over Tokyo in night-vision style." loading="lazy" decoding="async"></button>
+    <figcaption>Hermes chat with the globe over Tokyo in night-vision style.</figcaption>
+  </figure></li>
+  <li class="g-item g-17"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-live-fly-to-tokyo.l.webp" data-orig="../assets/eoh/img/screenshots-live-fly-to-tokyo.jpg" data-caption="Live fly-to over Tokyo on the globe." aria-label="Enlarge: Live fly-to over Tokyo on the globe."><img src="../thumbs/eoh/screenshots-live-fly-to-tokyo.t.webp" width="640" height="568" alt="Live fly-to over Tokyo on the globe." loading="lazy" decoding="async"></button>
+    <figcaption>Live fly-to over Tokyo on the globe.</figcaption>
+  </figure></li>
+  <li class="g-item g-18"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-hud-via-hermes.l.webp" data-orig="../assets/eoh/img/screenshots-hud-via-hermes.jpg" data-caption="HUD summary generated through Hermes." aria-label="Enlarge: HUD summary generated through Hermes."><img src="../thumbs/eoh/screenshots-hud-via-hermes.t.webp" width="640" height="400" alt="HUD summary generated through Hermes." loading="lazy" decoding="async"></button>
+    <figcaption>HUD summary generated through Hermes.</figcaption>
+  </figure></li>
+  <li class="g-item g-19"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-pane-full-ui.l.webp" data-orig="../assets/eoh/img/screenshots-pane-full-ui.jpg" data-caption="The Eye Of Hermes pane with its full UI." aria-label="Enlarge: The Eye Of Hermes pane with its full UI."><img src="../thumbs/eoh/screenshots-pane-full-ui.t.webp" width="640" height="568" alt="The Eye Of Hermes pane with its full UI." loading="lazy" decoding="async"></button>
+    <figcaption>The Eye Of Hermes pane with its full UI.</figcaption>
+  </figure></li>
+  <li class="g-item g-20"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/eoh/screenshots-pane-globe-only.l.webp" data-orig="../assets/eoh/img/screenshots-pane-globe-only.jpg" data-caption="The Eye Of Hermes pane showing only the globe." aria-label="Enlarge: The Eye Of Hermes pane showing only the globe."><img src="../thumbs/eoh/screenshots-pane-globe-only.t.webp" width="640" height="568" alt="The Eye Of Hermes pane showing only the globe." loading="lazy" decoding="async"></button>
+    <figcaption>The Eye Of Hermes pane showing only the globe.</figcaption>
+  </figure></li>
+</ul>
+  </section>
+
+  <section class="plate install-plate" id="install" data-reveal aria-labelledby="install-h">
+    <p class="coord">00°00′N 00°00′E</p>
+    <h2 id="install-h">Field instructions</h2>
+    <div class="install">
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/EOH --ref 9d433e49645df8ee549b58467876eb1e5daa0f34
+hermes plugins enable godseye</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/EOH --ref 9d433e49645df8ee549b58467876eb1e5daa0f34
+hermes plugins enable godseye">Copy</button></div>
+<p>The plugin id is godseye. Once the catalog entry is merged you can also install by catalog name: hermes plugins install godseye.</p>
+<p>Requires Node 24 or newer and a running God's Eye View checkout (mojomast/gods-eye-view main at or after b361a25 for the public SDR layer). Optional map credentials are declared in plugin.yaml and read through Hermes secrets. The one-click install link in the README is hermes://plugin/install?<code>repo=mojomast</code>/EOH.</p>
+</div>
+    <h3>Sources</h3>
+    <ul class="links">
+  <li><a href="https://github.com/mojomast/EOH"><span class="l-label">Repository</span> <span class="l-sub">mojomast/EOH</span></a></li>
+  <li><a href="https://github.com/mojomast/EOH/releases/tag/v0.2.10"><span class="l-label">Release v0.2.10</span> <span class="l-sub">9d433e4</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2118845028910915846"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/149691"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #149691</span></a></li>
+  <li><a href="https://github.com/mojomast/gods-eye-view"><span class="l-label">mojomast/gods-eye-view</span> <span class="l-sub">related repo</span></a></li>
+</ul>
+  </section>
+</main>
+<footer class="credit">
+  <p>Eye Of Hermes (EOH) is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/EOH">plugin repository</a> under its license.</p>
+</footer>
+<script src="globe.js" defer></script>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>

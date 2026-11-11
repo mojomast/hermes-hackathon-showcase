@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bundlebees — orchestrate CUA bees from Hermes Agent</title>
+<meta name="description" content="Orchestrate CUA bees from Hermes.">
+<meta name="theme-color" content="#0b0f14">
+<meta property="og:title" content="bundlebees — orchestrate CUA bees from Hermes Agent">
+<meta property="og:description" content="Orchestrate CUA bees from Hermes.">
+<meta property="og:image" content="../assets/bundlebees/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="style.css">
+<script src="../shared/site.js" defer></script>
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="entry-nav" aria-label="Entries">
+  <a class="n-prev" href="../templeos/" rel="prev" aria-label="Previous entry: TempleOS for Hermes"><span aria-hidden="true">←</span> <span class="n-txt">TempleOS for Hermes</span><span class="n-alt">Prev</span></a>
+  <a class="n-home" href="../">All 10 entries <span class="n-count">10/10</span></a>
+  <a class="n-next" href="../eoh/" rel="next" aria-label="Next entry: Eye Of Hermes (EOH)"><span class="n-txt">Eye Of Hermes (EOH)</span><span class="n-alt">Next</span> <span aria-hidden="true">→</span></a>
+</nav>
+<main id="main">
+  <section class="hero" aria-labelledby="t">
+    <div class="hero-copy">
+      <p class="kick">HIVE-01 · v0.1.0 · Hermes &gt;=0.23.0</p>
+      <h1 id="t">bundle<span>bees</span></h1>
+      <p class="lede">Orchestrate CUA bees from Hermes.</p>
+      <p class="sub">Check a worker launcher, dispatch leased briefs into disposable <a href="https://github.com/trycua/cua">Cua</a> sandboxes, watch the attempts, and leave verify and deploy to a user-run CLI.</p>
+    </div>
+    <ul class="comb" aria-label="Key figures">
+      <li class="c0"><strong>4</strong><span>agent tools</span></li>
+      <li class="c1"><strong>571</strong><span>o200k schema tokens</span></li>
+      <li class="c2"><strong>150</strong><span>tests passed</span></li>
+      <li class="c3"><strong>1:12</strong><span>submission video</span></li>
+      <li class="c4"><strong>v0.1.0</strong><span>release</span></li>
+    </ul>
+  </section>
+
+  <section class="band why" data-reveal aria-labelledby="why-h">
+    <h2 id="why-h"><span class="idx">01</span> Why it exists</h2>
+    <div class="cols">
+      <p>A coordinator can already run cheap, parallel coding workers (bees) in disposable Cua sandboxes on a machine you control. The pattern this plugin was built for is the Orbit / DeepSeek bees workflow: slice a repo task into file-leased briefs and dispatch them to workers.</p>
+      <p>bundlebees turns that workflow into a Hermes plugin, so the agent never has to invent an HTTP client, touch a token, or apply a patch itself. Task tracking stays on Hermes kanban. The model dispatches and watches. You run <code>hermes bundlebees verify</code> and <code>hermes bundlebees deploy</code>.</p>
+    </div>
+  </section>
+
+  <section class="band flow-sec" data-reveal aria-labelledby="flow-h">
+    <h2 id="flow-h"><span class="idx">02</span> How it works</h2>
+    <div class="flow-wrap"><svg class="flow" viewBox="0 0 1000 290" role="img" aria-labelledby="flow-t">
+  <title id="flow-t">How it works: Hermes agent, then bundlebees plugin, then Worker launcher, then Cua sandboxes, then Attempt result and patch, then hermes bundlebees verify, then Feature branch push, then Open a pull request. The plugin can also attach an optional Hermes kanban card id.</title>
+  <path id="flowpath" d="M80 80 L200 150 L320 80 L440 150 L560 80 L680 150 L800 80 L920 150" class="trail"/>
+  <g class="node n0"><polygon points="118.1,58.0 118.1,102.0 80.0,124.0 41.9,102.0 41.9,58.0 80.0,36.0"/><text x="80" y="24" text-anchor="middle">Hermes agent</text><text class="num" x="80" y="86" text-anchor="middle">01</text></g>
+  <g class="node n1"><polygon points="238.1,128.0 238.1,172.0 200.0,194.0 161.9,172.0 161.9,128.0 200.0,106.0"/><text x="200" y="216" text-anchor="middle">bundlebees plugin</text><text class="num" x="200" y="156" text-anchor="middle">02</text></g>
+  <g class="node n2"><polygon points="358.1,58.0 358.1,102.0 320.0,124.0 281.9,102.0 281.9,58.0 320.0,36.0"/><text x="320" y="24" text-anchor="middle">Worker launcher</text><text class="num" x="320" y="86" text-anchor="middle">03</text></g>
+  <g class="node n3"><polygon points="478.1,128.0 478.1,172.0 440.0,194.0 401.9,172.0 401.9,128.0 440.0,106.0"/><text x="440" y="216" text-anchor="middle">Cua sandboxes</text><text class="num" x="440" y="156" text-anchor="middle">04</text></g>
+  <g class="node n4"><polygon points="598.1,58.0 598.1,102.0 560.0,124.0 521.9,102.0 521.9,58.0 560.0,36.0"/><text x="560" y="24" text-anchor="middle">Attempt result and patch</text><text class="num" x="560" y="86" text-anchor="middle">05</text></g>
+  <g class="node n5"><polygon points="718.1,128.0 718.1,172.0 680.0,194.0 641.9,172.0 641.9,128.0 680.0,106.0"/><text x="680" y="216" text-anchor="middle">hermes bundlebees verify</text><text class="num" x="680" y="156" text-anchor="middle">06</text></g>
+  <g class="node n6"><polygon points="838.1,58.0 838.1,102.0 800.0,124.0 761.9,102.0 761.9,58.0 800.0,36.0"/><text x="800" y="24" text-anchor="middle">Feature branch push</text><text class="num" x="800" y="86" text-anchor="middle">07</text></g>
+  <g class="node n7"><polygon points="958.1,128.0 958.1,172.0 920.0,194.0 881.9,172.0 881.9,128.0 920.0,106.0"/><text x="920" y="216" text-anchor="middle">Open a pull request</text><text class="num" x="920" y="156" text-anchor="middle">08</text></g>
+  <g class="kanban"><polygon points="217.3,252.0 217.3,272.0 200.0,282.0 182.7,272.0 182.7,252.0 200.0,242.0"/><text x="230" y="267">Hermes kanban (optional card id)</text><line x1="200" y1="242" x2="200" y2="224"/></g>
+  <g class="bee"><ellipse rx="7" ry="5"/><line x1="-2" y1="-5" x2="-2" y2="5"/><line x1="2" y1="-5" x2="2" y2="5"/><ellipse class="wing" cx="0" cy="-7" rx="5" ry="3"/><animateMotion dur="9s" begin="-0s" repeatCount="indefinite" rotate="auto"><mpath href="#flowpath"/></animateMotion></g><g class="bee"><ellipse rx="7" ry="5"/><line x1="-2" y1="-5" x2="-2" y2="5"/><line x1="2" y1="-5" x2="2" y2="5"/><ellipse class="wing" cx="0" cy="-7" rx="5" ry="3"/><animateMotion dur="11s" begin="-3s" repeatCount="indefinite" rotate="auto"><mpath href="#flowpath"/></animateMotion></g><g class="bee"><ellipse rx="7" ry="5"/><line x1="-2" y1="-5" x2="-2" y2="5"/><line x1="2" y1="-5" x2="2" y2="5"/><ellipse class="wing" cx="0" cy="-7" rx="5" ry="3"/><animateMotion dur="13s" begin="-6s" repeatCount="indefinite" rotate="auto"><mpath href="#flowpath"/></animateMotion></g>
+</svg></div>
+    <ol class="flow-list"><li>Hermes agent <span>→ four bundlebees tools</span></li><li>bundlebees plugin <span>→ preconfigured adapter</span></li><li>Worker launcher</li><li>Cua sandboxes</li><li>Attempt result and patch <span>→ user-run CLI</span></li><li>hermes bundlebees verify <span>→ lease, tests, secret scan</span></li><li>Feature branch push</li><li>Open a pull request</li></ol>
+  </section>
+
+  <section class="band cells-sec" data-reveal aria-labelledby="feat-h">
+    <h2 id="feat-h"><span class="idx">03</span> Cells</h2>
+    <ul class="cells">
+      <li><div><p>Four tools to check launcher health, dispatch leased briefs, watch attempts, and generate a paste-ready host setup prompt</p></div></li>
+      <li><div><p>User-run CLI: hermes bundlebees verify, deploy, and doctor — the model does not apply patches, run the suite, push, or SSH</p></div></li>
+      <li><div><p>Bundled skill bundlebees:bundlebees-operator</p></div></li>
+      <li><div><p>Dark Desktop pane on Hermes 0.23+ through <code>ctx.rest</code>; the pane never shows tokens or host addresses</p></div></li>
+      <li><div><p>Secrets only through Hermes <code>get_secret</code>; private or LAN launcher URLs require <code>allow_private</code>=true (default false)</p></div></li>
+      <li><div><p>Verify runs only the named tests plus a secret scan, refuses main/master, and pushes a feature branch when green</p></div></li>
+    </ul>
+  </section>
+
+  <section class="band tools-sec" data-reveal aria-labelledby="tools-h">
+    <h2 id="tools-h"><span class="idx">04</span> Four tools · 571 o200k of a 900 budget</h2>
+    <div class="budget" role="img" aria-label="Per-tool schema tokens: bundlebees_status 108, bundlebees_dispatch 130, bundlebees_attempt 146, bundlebees_host_prompt 185; combined 571 of 900">
+      <span class="b0" style="flex:108"></span><span class="b1" style="flex:130"></span><span class="b2" style="flex:146"></span><span class="b3" style="flex:185"></span><span class="free" style="flex:329"></span>
+    </div>
+    <dl class="tools">
+      <div class="t0"><dt><code>bundlebees_status</code><span>108 o200k</span></dt><dd>Health, capacity, live attempts, events, containers, or authorized projects. op is required. Never returns tokens or hosts.</dd></div>
+      <div class="t1"><dt><code>bundlebees_dispatch</code><span>130 o200k</span></dt><dd>Validate a brief (object or JSON string) and start a worker. Optional model (default deepseek-v4.1-flash) and <code>kanban_task_id</code>.</dd></div>
+      <div class="t2"><dt><code>bundlebees_attempt</code><span>146 o200k</span></dt><dd>get, events, cancel, or review one attempt. cancel and review require <code>confirm=true</code>. Notes are scrubbed.</dd></div>
+      <div class="t3"><dt><code>bundlebees_host_prompt</code><span>185 o200k</span></dt><dd>Paste-ready setup prompt for a remote-host agent. Takes a reach method enum, never an address. No secrets or host addresses in or out.</dd></div>
+    </dl>
+    <p class="fn">Per-tool counts are each schema measured on its own; the combined array measures 571.</p>
+  </section>
+
+  <section class="band uses" data-reveal aria-labelledby="uc-h">
+    <h2 id="uc-h"><span class="idx">05</span> Flight plans</h2>
+    <ol class="plans">
+      <li><span class="pn">B-01</span><p>Check launcher health, capacity, and authorized projects with <code>bundlebees_status</code> (the pane-health screenshot) without ever seeing a token or host</p></li>
+      <li><span class="pn">B-02</span><p>Dispatch a leased brief: an objective plus <code>assigned_files</code> on an authorized project and a feature branch</p></li>
+      <li><span class="pn">B-03</span><p>Watch a running attempt and send a failing patch back to retry, while merges stay with you</p></li>
+      <li><span class="pn">B-04</span><p>When the attempt is ready, run hermes bundlebees verify yourself so tests and a secret scan land on a feature branch</p></li>
+      <li><span class="pn">B-05</span><p>Generate a paste-ready host setup prompt with <code>bundlebees_host_prompt</code>; it never takes a host, token, or private URL as an argument</p></li>
+      <li><span class="pn">B-06</span><p>Use the operator skill so the agent slices leased briefs and treats worker events as untrusted</p></li>
+    </ol>
+  </section>
+
+  <section class="band vid-sec" data-reveal aria-labelledby="vid-h">
+    <h2 id="vid-h"><span class="idx">06</span> Showcase</h2>
+    <figure class="vid">
+  <video controls preload="none" playsinline width="1280" height="720" poster="../assets/bundlebees/poster.jpg" aria-label="bundlebees submission video, 1:12">
+    <source src="../assets/bundlebees/video.mp4" type="video/mp4">
+    <a href="../assets/bundlebees/video.mp4">Download the bundlebees submission video (MP4)</a>
+  </video>
+  <figcaption>Submission video · 1:12 · <a href="https://x.com/ussyverse/status/2120622521418686752">original post on X</a></figcaption>
+</figure>
+  </section>
+
+  <section class="band gal" data-reveal aria-labelledby="gal-h">
+    <h2 id="gal-h"><span class="idx">07</span> Inspection</h2>
+    <ul class="shots" data-gallery aria-label="bundlebees screenshots">
+  <li class="g-item g-1"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/bundlebees/pane-health.l.webp" data-orig="../assets/bundlebees/img/pane-health.png" data-caption="The Bundlebees Desktop pane on the Health tab, showing launcher state, version, model, and concurrency." aria-label="Enlarge: The Bundlebees Desktop pane on the Health tab, showing launcher state, version, model, and concurrency."><img src="../thumbs/bundlebees/pane-health.t.webp" width="640" height="314" alt="The Bundlebees Desktop pane on the Health tab, showing launcher state, version, model, and concurrency." loading="lazy" decoding="async"></button>
+    <figcaption>The Bundlebees Desktop pane on the Health tab, showing launcher state, version, model, and concurrency.</figcaption>
+  </figure></li>
+  <li class="g-item g-2"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/bundlebees/banner.l.webp" data-orig="../assets/bundlebees/img/banner.png" data-caption="bundlebees: Orchestrate CUA bees from Hermes." aria-label="Enlarge: bundlebees: Orchestrate CUA bees from Hermes."><img src="../thumbs/bundlebees/banner.t.webp" width="640" height="320" alt="bundlebees: Orchestrate CUA bees from Hermes." loading="lazy" decoding="async"></button>
+    <figcaption>bundlebees: Orchestrate CUA bees from Hermes.</figcaption>
+  </figure></li>
+  <li class="g-item g-3"><figure>
+    <button type="button" class="g-open" data-full="../thumbs/bundlebees/social.l.webp" data-orig="../assets/bundlebees/img/social.png" data-caption="bundlebees social card." aria-label="Enlarge: bundlebees social card."><img src="../thumbs/bundlebees/social.t.webp" width="640" height="336" alt="bundlebees social card." loading="lazy" decoding="async"></button>
+    <figcaption>bundlebees social card.</figcaption>
+  </figure></li>
+</ul>
+  </section>
+
+  <section class="band inst" data-reveal aria-labelledby="inst-h">
+    <h2 id="inst-h"><span class="idx">08</span> Install</h2>
+    <div class="install">
+<div class="code-wrap"><pre><code>hermes plugins install mojomast/bundlebees --ref 57a6f12cdcfa789c5aba5f22f3f46efd2b8b3d5c
+hermes plugins enable bundlebees</code></pre><button type="button" class="copy" data-copy="hermes plugins install mojomast/bundlebees --ref 57a6f12cdcfa789c5aba5f22f3f46efd2b8b3d5c
+hermes plugins enable bundlebees">Copy</button></div>
+<p><code>--ref</code> takes a 40-character commit SHA, not a tag name. Store the launcher token in Hermes secrets as BUNDLEBEES_LAUNCHER_TOKEN; never paste the value into chat. Skill id: bundlebees:bundlebees-operator. The four tools still run when the Desktop pane is unavailable.</p>
+</div>
+    <p class="fn">README badge and v0.1.0 release notes: 150 tests passed. hermes plugins validate --install-deps and hermes plugins doctor --ci are green.</p>
+    <ul class="links">
+  <li><a href="https://github.com/mojomast/bundlebees"><span class="l-label">Repository</span> <span class="l-sub">mojomast/bundlebees</span></a></li>
+  <li><a href="https://github.com/mojomast/bundlebees/releases/tag/v0.1.0"><span class="l-label">Release v0.1.0</span> <span class="l-sub">57a6f12</span></a></li>
+  <li><a href="https://x.com/ussyverse/status/2120622521418686752"><span class="l-label">Submission post on X</span> <span class="l-sub">@ussyverse</span></a></li>
+  <li><a href="https://github.com/NousResearch/hermes-agent/pull/153888"><span class="l-label">Catalog PR</span> <span class="l-sub">NousResearch/hermes-agent #153888</span></a></li>
+</ul>
+  </section>
+</main>
+<footer class="credit">
+  <p>bundlebees is a community plugin by Kyle Durepos (<a href="https://github.com/mojomast">mojomast</a>, <a href="https://x.com/ussyverse">@ussyverse</a>) for <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>, entered in the Nous Research Hermes Agent Plugin Hackathon. It is not a Nous Research product. Screenshots and video belong to the <a href="https://github.com/mojomast/bundlebees">plugin repository</a> under its license.</p>
+</footer>
+<script src="hive.js" defer></script>
+
+<dialog class="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="lb-bar">
+    <button type="button" class="lb-prev" aria-label="Previous image">←</button>
+    <span class="lb-count" aria-live="polite"></span>
+    <button type="button" class="lb-next" aria-label="Next image">→</button>
+    <a class="lb-orig" href="#">Original</a>
+    <button type="button" class="lb-close" aria-label="Close image viewer">✕</button>
+  </div>
+</dialog>
+</body>
+</html>
