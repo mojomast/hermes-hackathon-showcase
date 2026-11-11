@@ -1,0 +1,53 @@
+{
+  "slug": "hermes-plugin-dev",
+  "name": "Hermes Plugin Dev",
+  "catalog_name": "hermes-plugin-dev",
+  "title": "Hermes Plugin Dev",
+  "tagline": "Teach any coding agent to ship Hermes Agent plugins that pass review the first time.",
+  "repo": "https://github.com/mojomast/hermes-plugin-dev",
+  "release": {
+    "tag": "v0.3.1",
+    "url": "https://github.com/mojomast/hermes-plugin-dev/releases/tag/v0.3.1",
+    "sha": "796a35e4d893b985f1b61d8e11b5ae7e4118bf6f"
+  },
+  "x_post": "https://x.com/ussyverse/status/2120181358073184269",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/152699",
+  "requires_hermes": ">=0.21.6",
+  "stats": {
+    "tools": 2,
+    "tool_names": [
+      "hpd_scaffold",
+      "hpd_check"
+    ],
+    "tokens_o200k": 190,
+    "tokens_note": "README badge and text, and the v0.3.1 release notes: 2 tools, 190 o200k tokens, measured with tiktoken o200k_base. Unchanged in v0.3.1.",
+    "tests": null,
+    "tests_note": "README and release notes say tests cover a malicious __init__.py that is not executed on the tool path, and that pytest plus CI run, but they do not publish a test count.",
+    "source": "README.md at v0.3.1; GitHub release notes for v0.3.1"
+  },
+  "features": [
+    "Bundled hermes-plugin-development skill that any coding agent can load, plus two offline Hermes tools",
+    "hpd_scaffold: start a plugin from a validated hello-hermes template",
+    "hpd_check: lint manifests, catalog entries, security preflight, and schema token cost",
+    "v0.3.1: hpd_check measures schema tokens statically from the AST and never imports the target plugin",
+    "Import-based measure is only on a user-run CLI: hermes hpd check <dir> --execute",
+    "Catalog kit and PR body templates, including the 6-screenshot cap",
+    "No network, subprocesses, or credentials; writes only into the target folder you name"
+  ],
+  "use_cases": [
+    "Ask Hermes (or another coding agent with the skill) to scaffold a new plugin from the hello-hermes template",
+    "Lint a plugin in progress with hpd_check: manifest, tools-vs-register, catalog YAML, security preflight, and o200k schema cost",
+    "Measure schema tokens without executing the target plugin's code (the v0.3.1 static path)",
+    "Follow the catalog kit to write a YAML-only catalog entry and PR body that match upstream review rules",
+    "Walk through the README example of exposing local Ollama models as one composable tool, then checking it",
+    "Install the skill into Claude Code or another Agent Skills-compatible host using the documented install matrix"
+  ],
+  "install": "hermes plugins install mojomast/hermes-plugin-dev --ref 796a35e4d893b985f1b61d8e11b5ae7e4118bf6f\nhermes plugins enable hermes-plugin-dev\n\nSkill id: hermes-plugin-dev:hermes-plugin-development.\nClaude Code (from the README install matrix): /plugin marketplace add mojomast/hermes-plugin-dev then /plugin install hermes-plugin-dev@hermes-plugin-dev.\nThe security preflight is a heuristic, not a proof.",
+  "video": {
+    "found": false,
+    "missing": true,
+    "note": "No submission/demo MP4 was found in the plugin repository or in local delivery folders. The repo ships a banner only (img/banner-v3.jpg). Do not fetch the X post video."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

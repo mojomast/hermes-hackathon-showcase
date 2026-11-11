@@ -1,0 +1,59 @@
+{
+  "slug": "photo-to-part",
+  "name": "photo-to-part",
+  "catalog_name": "photo-to-part",
+  "title": "Photo to Part",
+  "tagline": "Turn photos, a few measurements, or a messy 3D scan into a parametric part you can print or edit.",
+  "repo": "https://github.com/mojomast/hermes-photo-to-part",
+  "plugin_subdir": "plugin",
+  "release": {
+    "tag": "v0.1.22",
+    "url": "https://github.com/mojomast/hermes-photo-to-part/releases/tag/v0.1.22",
+    "sha": "d924991f56ad4cf7b94e33f2ac5dcb6cf24fac5f"
+  },
+  "x_post": "https://x.com/ussyverse/status/2120597848089882860",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/153757",
+  "requires_hermes": ">=0.23.0 for the optional Part studio pane; tools install without it",
+  "stats": {
+    "tools": 6,
+    "tool_names": [
+      "photo_part_validate",
+      "photo_part_render",
+      "photo_part_heal",
+      "photo_part_template",
+      "photo_part_measure",
+      "photo_part_build"
+    ],
+    "tokens_o200k": null,
+    "tokens_note": "Not stated in the README or v0.1.22 release notes.",
+    "tests": null,
+    "tests_note": "README documents unittest discover -s tests and hermes plugins validate / doctor --ci, but does not publish a test count.",
+    "source": "README.md at v0.1.22; GitHub release notes for v0.1.22"
+  },
+  "features": [
+    "One skill (photo-to-part:photo-to-printable-part) and six tools",
+    "Optional Part studio Desktop pane on Hermes 0.23+ showing stage, photo overlay, renders, history, scale/trust, approval, and output paths",
+    "Templates including plate clip, spur gear, scroll, and strap hinge; builds are local Python with an approval prompt",
+    "Validate watertight meshes and stated sizes; heal messy scans; render comparison views next to the photo",
+    "User-stated millimetre values are not replaced by a photo measurement",
+    "No credentials, no printer connection, no network from the tools; chat photos still go to your model provider"
+  ],
+  "use_cases": [
+    "Ask for a replacement part from a photo and a few measurements, then print a validated STL",
+    "Make a fit-test print of a plate clip (the checked-in sample is 51 × 72.6 × 6 mm in examples/plate-clip)",
+    "Turn a messy 3D scan into a healed solid with photo_part_heal, then validate and render views",
+    "Generate a spur gear from stated module, tooth count, and bore, after the template path has been tried",
+    "Model a strap hinge (one or two scrolls on a straight strap) and compare the photo overlay in the Part studio pane",
+    "Hold rendered front/iso/side/top views next to the original photograph to check the fit before you print"
+  ],
+  "install": "Install the plugin/ subdirectory so evals/ and tests/ are not copied into Hermes:\n\nhermes plugins install mojomast/hermes-photo-to-part/plugin --ref d924991f56ad4cf7b94e33f2ac5dcb6cf24fac5f\nhermes plugins enable photo-to-part\n\nUntil catalog acceptance the README also shows --no-enable first so you can read the code. After catalog acceptance the reviewed install is hermes plugins install photo-to-part. Load the skill with skill_view(\"photo-to-part:photo-to-printable-part\"). Enabling the plugin installs its Python packages from PyPI after Hermes dependency consent. A STEP solid needs CadQuery or build123d in the project environment (optional, can take several minutes). A root install without /plugin is refused.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 60.0,
+    "note": "60-second showcase used for the submission. Re-encoded to H.264 720p, faststart, under 14 MB."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

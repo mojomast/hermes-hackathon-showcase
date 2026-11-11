@@ -1,0 +1,71 @@
+{
+  "slug": "eoh",
+  "name": "Eye Of Hermes (EOH)",
+  "catalog_name": "godseye",
+  "title": "Eye Of Hermes (EOH)",
+  "tagline": "A live 3D globe in the Hermes pane, which the agent can fly, measure, and watch.",
+  "repo": "https://github.com/mojomast/EOH",
+  "related_repos": [
+    {
+      "name": "mojomast/gods-eye-view",
+      "url": "https://github.com/mojomast/gods-eye-view",
+      "note": "Fork of God's Eye View that the plugin drives. README requires main at or after b361a25 for the public SDR receivers layer."
+    }
+  ],
+  "release": {
+    "tag": "v0.2.10",
+    "url": "https://github.com/mojomast/EOH/releases/tag/v0.2.10",
+    "sha": "9d433e49645df8ee549b58467876eb1e5daa0f34"
+  },
+  "x_post": "https://x.com/ussyverse/status/2118845028910915846",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/149691",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 11,
+    "tool_names": [
+      "godseye_view",
+      "godseye_query",
+      "godseye_layers",
+      "godseye_feeds",
+      "godseye_annotate",
+      "godseye_nav",
+      "godseye_track",
+      "godseye_scene",
+      "godseye_watch",
+      "godseye_capture",
+      "godseye_admin"
+    ],
+    "tokens_o200k": 7670,
+    "tokens_note": "The 11 registered schemas are 7670 o200k_base tokens (30986 bytes, 7483 cl100k_base), as stated in the README.",
+    "tests": null,
+    "tests_note": "README documents how to run pytest and Node tests and mentions GitHub Actions CI in the v0.2.10 release notes, but does not publish a test count.",
+    "source": "README.md at v0.2.10; GitHub release notes for v0.2.10; catalog YAML for tool names"
+  },
+  "features": [
+    "Live 3D globe pane in Hermes Desktop or the Webapp that Hermes can fly, pin, and watch",
+    "11 composable godseye_* tools covering view, query, layers, feeds, annotate, nav, track, scene, watch, capture, and admin",
+    "Public data: aircraft, ships, satellites, earthquakes, fires, weather, infrastructure, and public SDR receivers",
+    "HUD summaries generated with the Hermes model (ctx.llm)",
+    "Overlays sidebar for pins, routes, trails, lines, areas, watches, and scenes, with eoh.overlays.v1 import/export",
+    "Director scenes, pin clips (YouTube or X URLs), imagery compare, measure, and fire_check",
+    "Person search, face recognition, and tracking an individual are refused"
+  ],
+  "use_cases": [
+    "Ask Hermes to brief a city and fly the globe there — for example brief-and-show Tokyo or San Diego from chat",
+    "Compare before-and-after imagery on the pane, including fire_check (FIRMS plus clearest recent image, then imagery before/after)",
+    "Measure distances or areas on the globe and keep the result on the pane",
+    "Leave an area watch running for quakes, fires, or public aircraft/ships, with alerts quoted as third-party text",
+    "List nearest public SDR receivers (godseye_query op=sdr_receivers) and inspect the public SDR / waterfall layer in Europe or Berlin",
+    "Build a Director scene of pins and routes, or open a pin drawer with an attached clip, from the Overlays sidebar"
+  ],
+  "install": "hermes plugins install mojomast/EOH --ref 9d433e49645df8ee549b58467876eb1e5daa0f34\nhermes plugins enable godseye\n\nThe plugin id is godseye. Once the catalog entry is merged you can also install by catalog name: hermes plugins install godseye.\nRequires Node 24 or newer and a running God's Eye View checkout (mojomast/gods-eye-view main at or after b361a25 for the public SDR layer). Optional map credentials are declared in plugin.yaml and read through Hermes secrets. The one-click install link in the README is hermes://plugin/install?repo=mojomast/EOH.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 82.17,
+    "note": "Contest cut of the submission demo (about 82 seconds). Re-encoded to H.264 720p, faststart, under 14 MB."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

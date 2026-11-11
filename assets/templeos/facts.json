@@ -1,0 +1,68 @@
+{
+  "slug": "templeos",
+  "name": "TempleOS for Hermes",
+  "catalog_name": "templeos",
+  "title": "TempleOS for Hermes",
+  "tagline": "A local TempleOS-family guest in QEMU. The Hermes agent and you share one live screen.",
+  "repo": "https://github.com/mojomast/hermes-templeos",
+  "related_repos": [
+    {
+      "name": "mojomast/temple-of-hermes",
+      "url": "https://github.com/mojomast/temple-of-hermes",
+      "release_tag": "v0.1.2",
+      "release_url": "https://github.com/mojomast/temple-of-hermes/releases/tag/v0.1.2",
+      "note": "Default guest OS. Public-domain TempleOS-family ISO with an 18-entry home launcher, HBBS/1 boards over a COM2 serial modem, and a COM1 agent handshake. See source-guest.md. Official ISO is a GitHub release asset, not bundled in the plugin."
+    }
+  ],
+  "release": {
+    "tag": "v0.1.1",
+    "url": "https://github.com/mojomast/hermes-templeos/releases/tag/v0.1.1",
+    "sha": "c61d00eb4d36c5e3c7cd57a2985985aed8db42f0"
+  },
+  "x_post": "https://x.com/ussyverse/status/2120605050871455858",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/153852",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 4,
+    "tool_names": [
+      "templeos_vm",
+      "templeos_screen",
+      "templeos_input",
+      "templeos_files"
+    ],
+    "tokens_o200k": 972,
+    "tokens_note": "README: evals/measure_schemas.py prints one integer: o200k tokens of the four tool schemas. This tree measures 972 o200k. The count must stay unchanged (delta 0) when docs or tool descriptions change; still four tools, under the ~2,000 budget.",
+    "tests": null,
+    "tests_note": "README documents pytest and Node tests, plus optional live-QEMU smokes gated by TEMPLEOS_SMOKE=1, but does not publish a test count.",
+    "source": "README.md at v0.1.1; GitHub release notes for hermes-templeos v0.1.1 and temple-of-hermes v0.1.2"
+  },
+  "features": [
+    "Four tools: templeos_vm, templeos_screen, templeos_input, templeos_files",
+    "Default guest is Temple of Hermes 0.1.2; optional TinkerOS 5.20-rc10, stock TempleOS 5.03, or ZealOS",
+    "Shared live screen in a Hermes Desktop pane; take control / hand back",
+    "Networking is always off (-nic none); QEMU and ISOs are not bundled; ISOs are fetched from official pinned URLs and SHA-256 verified",
+    "HD Terry companion in the pane (original fan tribute, 2017 cap look); Hide Terry / Quotes controls",
+    "Optional HBBS/1 chat bridge is off by default; destination is the allow-list name bbs"
+  ],
+  "use_cases": [
+    "Boot Temple of Hermes 0.1.2 and share the live guest screen with Hermes in the Desktop pane",
+    "Let the agent type HolyC or shell commands while you watch, or take control and hand the keyboard back",
+    "Switch guest OS from the pane's Guest OS picker (Temple of Hermes, TinkerOS, TempleOS 5.03, ZealOS) and reboot into it",
+    "Read the screen as text or as a PNG (look defaults to 640×480) and push or pull files over the framed COM1 protocol",
+    "Open the 18-entry home launcher in Temple of Hermes — click an icon or press its shortcut, then return to the launcher when the app exits",
+    "Use HBBS/1 boards inside the guest over the COM2 serial modem, with no NIC on the VM"
+  ],
+  "install": "Requires qemu-system-x86_64 and qemu-img on PATH (for example sudo apt install qemu-system-x86 qemu-utils).\n\nhermes plugins install mojomast/hermes-templeos --ref c61d00eb4d36c5e3c7cd57a2985985aed8db42f0 --enable\nhermes plugins doctor templeos\n\nNo ISO is bundled. Doctor fetches the official Temple of Hermes 0.1.2 ISO from its GitHub release and verifies SHA-256. Primary host is Linux x86_64; Apple Silicon and Windows are untested. Terry is an original fan tribute with no official TempleOS affiliation.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 90.0,
+    "note": "90-second landscape submission video. Re-encoded to H.264 720p, faststart, under 14 MB."
+  },
+  "images_dir": "img/",
+  "source": "source.md",
+  "source_extra": [
+    "source-guest.md"
+  ]
+}

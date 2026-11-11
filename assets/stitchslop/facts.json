@@ -1,0 +1,54 @@
+{
+  "slug": "stitchslop",
+  "name": "stitchslop",
+  "catalog_name": "stitchslop",
+  "title": "Stitch Slop",
+  "tagline": "Watch the real Stitch Slop editor in a pane, run its own commands, digitize artwork, letter a ring, and export DST / PES.",
+  "repo": "https://github.com/mojomast/hermes-stitchslop",
+  "release": {
+    "tag": "v0.2.2",
+    "url": "https://github.com/mojomast/hermes-stitchslop/releases/tag/v0.2.2",
+    "sha": "51c12d0fd957fb4f40f98253570eb33d791c314c"
+  },
+  "x_post": "https://x.com/ussyverse/status/2119790420704239898",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/151946",
+  "requires_hermes": ">=0.21.6",
+  "stats": {
+    "tools": 4,
+    "tool_names": [
+      "stitchslop_status",
+      "stitchslop_connect",
+      "stitchslop_call",
+      "stitchslop_browser"
+    ],
+    "tokens_o200k": 477,
+    "tokens_note": "README: tool schemas measure 477 o200k tokens (unchanged in this branch; includes the optional overlay argument).",
+    "tests": null,
+    "tests_note": "README documents python3 -m unittest discover -s tests and that hermes plugins validate and doctor --ci pass, but does not publish a test count. Core install has no Python dependencies; NumPy and Pillow are an optional art extra.",
+    "source": "README.md at v0.2.2; GitHub release notes for v0.2.2"
+  },
+  "features": [
+    "Four tools and no core dependencies",
+    "Live pane that streams a dedicated Chrome window of the Stitch Slop editor and forwards clicks and keys",
+    "Bridge protocol for the official Stitch Slop agent panel (loopback WebSocket)",
+    "Digitize artwork, arc typesetting / lettering, and export machine stitch files (DST / PES)",
+    "First pairing is pane-only: agent tools refuse a model-supplied token",
+    "Bundled skill covering the digitizing workflow"
+  ],
+  "use_cases": [
+    "Open the Stitch Slop editor in the Hermes pane and watch the live design while you talk to the agent",
+    "Digitize artwork into a machine stitch file and export DST or PES",
+    "Letter a ring or other curved text with the bundled arc-typesetting script",
+    "Run the editor's own commands through stitchslop_call after a hand-paired connection",
+    "Reproduce the two-colour badge in the README (assets/stitch.jpg), which was made end to end from a chat session",
+    "Check bridge and browser status with stitchslop_status before starting work"
+  ],
+  "install": "hermes plugins install mojomast/hermes-stitchslop --ref 51c12d0fd957fb4f40f98253570eb33d791c314c\nhermes plugins enable stitchslop\n\nThen pair once by hand. The agent tool refuses a model-supplied token (pair_via_pane); first pairing is a human action in the pane, as documented in the README. Linux is the documented platform. See source.md for the full pairing and security notes.",
+  "video": {
+    "found": false,
+    "missing": true,
+    "note": "No submission/demo MP4 was found in the plugin repository or in local delivery folders. Do not fetch the X post video."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

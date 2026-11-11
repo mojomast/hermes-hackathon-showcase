@@ -1,0 +1,72 @@
+{
+  "slug": "assetrizz",
+  "name": "assetrizz",
+  "catalog_name": "assetrizz",
+  "title": "assetrizz",
+  "tagline": "Search 14,641 original 2D game assets and compose scenes beside the Hermes agent.",
+  "repo": "https://github.com/mojomast/assetrizz-hermes",
+  "related_repos": [
+    {
+      "name": "mojomast/assetrizz",
+      "url": "https://github.com/mojomast/assetrizz",
+      "release_tag": "v0.1.0",
+      "release_url": "https://github.com/mojomast/assetrizz/releases/tag/v0.1.0",
+      "sha": "05339c228f55ac95ad21b5c947db0c6e36207cd4",
+      "note": "Original 2D game-asset library. 14,641 PNGs across 23 style packs, about 1.65 GB, pinned by the plugin at tag v0.1.0. See source-library.md."
+    }
+  ],
+  "release": {
+    "tag": "v0.2.0",
+    "url": "https://github.com/mojomast/assetrizz-hermes/releases/tag/v0.2.0",
+    "sha": "e710b89c276b210969bebd67db4f1c855541586a"
+  },
+  "x_post": "https://x.com/ussyverse/status/2120191163764449283",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/152771",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 2,
+    "tool_names": [
+      "assetrizz_search",
+      "assetrizz_scene"
+    ],
+    "tokens_o200k": 970,
+    "tokens_note": "v0.2.0 release notes: combined tool-schema cost is 970 tokens on o200k_base (was 931; +39, within the +80 cap).",
+    "tests": 93,
+    "tests_note": "v0.2.0 release notes: 93 tests passed. hermes plugins validate --install-deps and hermes plugins doctor --ci are green.",
+    "library": {
+      "pngs": 14641,
+      "style_packs": 23,
+      "catalog": "15 MB scannable JSONL bundled with the plugin; art stays in mojomast/assetrizz v0.1.0"
+    },
+    "source": "assetrizz-hermes README.md at v0.2.0; GitHub release notes for assetrizz-hermes v0.2.0 and assetrizz v0.1.0"
+  },
+  "features": [
+    "Two compact tools, a dark Desktop compose pane, and a 15 MB scannable catalog",
+    "v0.2.0 compose-v2: assetrizz_scene op=compose compiles a compact signed scene spec into a placed scene",
+    "Four gameplay templates: topdown_farming, topdown_shooter, dungeon_crawler, and side_platformer",
+    "Layer lint for collisions, HUD/playfield overlap, and off-canvas placement",
+    "On-demand fetches of single PNGs from the pinned library tag, SSRF-guarded and SHA-256 verified",
+    "Bulk library download is user-initiated only (pane button or CLI), not a model tool"
+  ],
+  "use_cases": [
+    "Ask the agent for a meadow, a ranger, or a roadside inn; it searches the catalog, places tiles and props, and renders a PNG",
+    "Live-preview the current scene in the dark Assetrizz Desktop pane on Hermes 0.23 or newer",
+    "Compose a top-down farming, top-down shooter, dungeon crawler, or side-platformer scene from a compact signed spec (compose-v2)",
+    "Lint a layout for collisions, HUD/playfield overlap, or off-canvas placement before you export",
+    "Keep the 1.65 GB art tree out of the plugins folder: install only the plugin repo (or, for the older layout, mojomast/assetrizz/plugin)",
+    "Download chosen style packs yourself when you want a local library; the agent cannot start a bulk download"
+  ],
+  "install": "hermes plugins install mojomast/assetrizz-hermes --ref e710b89c276b210969bebd67db4f1c855541586a\nhermes plugins enable assetrizz\n\n--ref takes a 40-character commit SHA, not a tag name. Skill id: assetrizz:assetrizz-composer. The two tools still run when the Desktop pane is unavailable. Library PNGs are pinned to mojomast/assetrizz tag v0.1.0 (commit 05339c228f55ac95ad21b5c947db0c6e36207cd4).",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 180.0,
+    "note": "Posted demo (180 seconds). Re-encoded to H.264 720p, faststart, under 14 MB. An 82-second shorter cut also existed locally; this pack uses the posted 180-second version."
+  },
+  "images_dir": "img/",
+  "source": "source.md",
+  "source_extra": [
+    "source-library.md"
+  ]
+}

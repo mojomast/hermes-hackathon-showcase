@@ -1,0 +1,56 @@
+{
+  "slug": "bundlebees",
+  "name": "bundlebees",
+  "catalog_name": "bundlebees",
+  "title": "bundlebees",
+  "tagline": "Orchestrate CUA bees from Hermes.",
+  "repo": "https://github.com/mojomast/bundlebees",
+  "release": {
+    "tag": "v0.1.0",
+    "url": "https://github.com/mojomast/bundlebees/releases/tag/v0.1.0",
+    "sha": "57a6f12cdcfa789c5aba5f22f3f46efd2b8b3d5c"
+  },
+  "x_post": "https://x.com/ussyverse/status/2120622521418686752",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/153888",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 4,
+    "tool_names": [
+      "bundlebees_status",
+      "bundlebees_dispatch",
+      "bundlebees_attempt",
+      "bundlebees_host_prompt"
+    ],
+    "tokens_o200k": 571,
+    "tokens_note": "README and v0.1.0 release notes: four tools measure 571 tokens on o200k_base (under a 900 budget). Per-tool o200k counts are in the README table.",
+    "tests": 150,
+    "tests_note": "README badge and v0.1.0 release notes: 150 tests passed. hermes plugins validate --install-deps and hermes plugins doctor --ci are green.",
+    "source": "README.md at v0.1.0; GitHub release notes for v0.1.0"
+  },
+  "features": [
+    "Four tools to check launcher health, dispatch leased briefs, watch attempts, and generate a paste-ready host setup prompt",
+    "User-run CLI: hermes bundlebees verify, deploy, and doctor — the model does not apply patches, run the suite, push, or SSH",
+    "Bundled skill bundlebees:bundlebees-operator",
+    "Dark Desktop pane on Hermes 0.23+ through ctx.rest; the pane never shows tokens or host addresses",
+    "Secrets only through Hermes get_secret; private or LAN launcher URLs require allow_private=true (default false)",
+    "Verify runs only the named tests plus a secret scan, refuses main/master, and pushes a feature branch when green"
+  ],
+  "use_cases": [
+    "Check launcher health, capacity, and authorized projects with bundlebees_status (the pane-health screenshot) without ever seeing a token or host",
+    "Dispatch a leased brief: an objective plus assigned_files on an authorized project and a feature branch",
+    "Watch a running attempt and send a failing patch back to retry, while merges stay with you",
+    "When the attempt is ready, run hermes bundlebees verify yourself so tests and a secret scan land on a feature branch",
+    "Generate a paste-ready host setup prompt with bundlebees_host_prompt; it never takes a host, token, or private URL as an argument",
+    "Use the operator skill so the agent slices leased briefs and treats worker events as untrusted"
+  ],
+  "install": "hermes plugins install mojomast/bundlebees --ref 57a6f12cdcfa789c5aba5f22f3f46efd2b8b3d5c\nhermes plugins enable bundlebees\n\n--ref takes a 40-character commit SHA, not a tag name. Store the launcher token in Hermes secrets as BUNDLEBEES_LAUNCHER_TOKEN; never paste the value into chat. Skill id: bundlebees:bundlebees-operator. The four tools still run when the Desktop pane is unavailable.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 72.0,
+    "note": "72-second 1080p showcase used for the X submission. Re-encoded to H.264 720p, faststart, under 14 MB."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

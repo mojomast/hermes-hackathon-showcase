@@ -1,0 +1,55 @@
+{
+  "slug": "hyperrizz",
+  "name": "hyperrizz",
+  "catalog_name": "hyperrizz",
+  "title": "Hyperrizz",
+  "tagline": "Tell Hermes the story. Watch your film take shape.",
+  "repo": "https://github.com/mojomast/hyperrizz",
+  "release": {
+    "tag": "v2.1.0",
+    "url": "https://github.com/mojomast/hyperrizz/releases/tag/v2.1.0",
+    "sha": "35c482e22413ee43c74955bd6da7fe7b053cdd9b"
+  },
+  "x_post": "https://x.com/ussyverse/status/2119790524097765383",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/151945",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 3,
+    "tool_names": [
+      "hyperrizz_project",
+      "hyperrizz_review",
+      "hyperrizz_produce"
+    ],
+    "tokens_o200k": null,
+    "tokens_note": "Not stated in the README or v2.1.0 release notes.",
+    "tests": {
+      "ffmpeg_regression_tests": 8,
+      "note": "README: 8 real-FFmpeg regression tests covering valid media, failure cases, and a near-black or blank frame 0. CI covers package integrity and verifier regression tests; the full browser/render smoke test is documented in VALIDATION.md."
+    },
+    "source": "README.md at v2.1.0; GitHub release notes for v2.1.0; catalog YAML for tool names"
+  },
+  "features": [
+    "Agent-led HyperFrames films with a live review pane, frame notes, revisions, and on-demand full Studio",
+    "Three tools: hyperrizz_project, hyperrizz_review, hyperrizz_produce",
+    "v2.1.0 money shot: every delivered film opens on a finished hero at full brightness so frame 0 works as a thumbnail",
+    "Local Node/Chromium/FFmpeg production; no API keys or hosted generation",
+    "Starter pinned to HyperFrames 0.9.23; Linux is the tested production platform",
+    "verify-media.py extracts frame 0 and rejects a near-black or blank opening"
+  ],
+  "use_cases": [
+    "Tell Hermes the story and have it materialize a HyperFrames project you can review in the live pane",
+    "Leave frame-specific notes and request a revision pass without leaving chat",
+    "Open the full HyperFrames Studio when you want to edit the film yourself",
+    "Deliver a film that starts on a readable hero/title frame (the v2.1.0 money-shot default), suitable as a social thumbnail",
+    "Run the broadcast lab example (docs/examples/broadcast-lab.png and contact sheet in img/) as a known production check",
+    "Verify the finished MP4 with the packaged verifier, including the frame-0 hero check"
+  ],
+  "install": "hermes plugins install mojomast/hyperrizz --ref 35c482e22413ee43c74955bd6da7fe7b053cdd9b\nhermes plugins enable hyperrizz\n\nThe package includes the agent tools and desktop/plugin.js. For a remote Hermes backend, install the Desktop half on the client through Install Plugin as well. The first build installs the pinned npm dependencies automatically. Linux is the tested production platform; macOS is declared but not yet tested. Platforms in the catalog entry: linux, macos.",
+  "video": {
+    "found": false,
+    "missing": true,
+    "note": "No submission/demo MP4 was found in the plugin repository or in local delivery folders. Do not fetch the X post video. The repo does contain docs/examples/broadcast-lab.mp4, an example film produced by the plugin; that file is not confirmed as the hackathon X demo, so it is not shipped here as video.mp4. Still frames from that example are in img/ (broadcast-lab.png, broadcast-contact-sheet.jpg)."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}

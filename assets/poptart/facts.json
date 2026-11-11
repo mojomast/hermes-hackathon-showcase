@@ -1,0 +1,62 @@
+{
+  "slug": "poptart",
+  "name": "poptart",
+  "catalog_name": "hermes-strudel-studio",
+  "title": "poptart",
+  "catalog_title": "Hermes Strudel Studio",
+  "tagline": "A local Strudel live-coding studio: write patterns, hit Play, and let your Hermes agent compose alongside you.",
+  "display_name_note": "Always call this plugin poptart in the showcase. The catalog listing title is Hermes Strudel Studio and the catalog id is hermes-strudel-studio, but the product name is poptart.",
+  "repo": "https://github.com/mojomast/poptart",
+  "plugin_subdir": "integration/hermes",
+  "release": {
+    "tag": "v0.2.5",
+    "url": "https://github.com/mojomast/poptart/releases/tag/v0.2.5",
+    "sha": "42356ddb9eff2eea2419bbd223ee159f353e4632"
+  },
+  "x_post": "https://x.com/ussyverse/status/2118847400152572123",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/150357",
+  "requires_hermes": ">=0.22.7",
+  "stats": {
+    "tools": 1,
+    "tool_names": [
+      "poptart_studio"
+    ],
+    "tokens_o200k": 127,
+    "tokens_note": "README: one composable agent tool, poptart_studio, covers 11 ops behind a single {op, input} call, with a 127-token schema (o200k_base).",
+    "tests": {
+      "node_service_tests": 7,
+      "python_plugin_tests": 12,
+      "note": "README Testing section: npm test (Node service tests, 7); python -m pytest -q tests/plugin (Python plugin tests, 12). Additional Playwright / desktop / standalone / browser suites are documented without a single combined count."
+    },
+    "source": "README.md at v0.2.5; INTEGRATION.md"
+  },
+  "features": [
+    "Live-coding Strudel/JS editor with tempo, Play/apply, Stop, and Mute",
+    "Scheduler-synced mini-notation highlights in the Hermes accent",
+    "Invalid edits keep the last good pattern playing and show the error separately",
+    "Persistent track library with revisions, snapshots, and named sections",
+    "One composable tool, poptart_studio, plus an opt-in Desktop/Webapp pane",
+    "Local-first: loopback-only Node sidecar, private per-install token, no hosted AI service"
+  ],
+  "use_cases": [
+    "Write a Strudel pattern in the studio and press Play; nothing sounds until you do",
+    "Ask Hermes to draft a beat, add a break, or change the tempo through poptart_studio, then apply it yourself",
+    "Keep several tracks with snapshots and switch named sections such as Intro, Main, or Break",
+    "Watch tokens light up as they play, then edit without killing the groove if the new code is invalid",
+    "Use the right-hand library layout shown in the README screenshots",
+    "Run the studio as a standalone app (Node 22+) or as the catalog subdirectory integration/hermes"
+  ],
+  "install": "The installable plugin is the self-contained integration/hermes directory, not the repo root. Catalog installs need Node 22+, not npm or a local build.\n\nhermes plugins install mojomast/poptart --ref 42356ddb9eff2eea2419bbd223ee159f353e4632\n# once listed, the catalog name is hermes-strudel-studio:\n# hermes plugins install hermes-strudel-studio --enable\nhermes plugins enable hermes-strudel-studio\n\nLicense is AGPL-3.0-or-later with toaster GPL notices; review LICENSE and NOTICE before redistribute. See source-integration.md for packaging details.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 40.0,
+    "note": "Hackathon demo (40 seconds). Re-encoded to H.264 720p, faststart, under 14 MB."
+  },
+  "images_dir": "img/",
+  "source": "source.md",
+  "source_extra": [
+    "source-integration.md"
+  ]
+}

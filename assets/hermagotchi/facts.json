@@ -1,0 +1,63 @@
+{
+  "slug": "hermagotchi",
+  "name": "Hermagotchi",
+  "catalog_name": "hermagotchi",
+  "title": "Hermagotchi",
+  "tagline": "Co-op virtual pets for Hermes — care them, battle async, earn Bits, unlock mythics, and talk trash in the lobby.",
+  "repo": "https://github.com/mojomast/hermagotchi",
+  "release": {
+    "tag": "v0.1.3",
+    "url": "https://github.com/mojomast/hermagotchi/releases/tag/v0.1.3",
+    "sha": "0ed7793fbf238e32fb86506ad2b587ae4eb90963"
+  },
+  "x_post": "https://x.com/ussyverse/status/2118850720669859883",
+  "catalog_pr": "https://github.com/NousResearch/hermes-agent/pull/150358",
+  "requires_hermes": ">=0.23.0",
+  "stats": {
+    "tools": 8,
+    "tool_names": [
+      "hermagotchi_status",
+      "hermagotchi_pet",
+      "hermagotchi_goals",
+      "hermagotchi_challenge",
+      "hermagotchi_battle",
+      "hermagotchi_shop",
+      "hermagotchi_social",
+      "hermagotchi_meta"
+    ],
+    "tokens_o200k": null,
+    "tokens_note": "Not stated in the README or v0.1.3 release notes.",
+    "tests": {
+      "python": 560,
+      "javascript": 168,
+      "note": "README states: on this branch, 560 Python tests passing (2 pre-existing failures also on main: an NPC art fringe check and a server taunt route test), 168 JS tests passing."
+    },
+    "source": "README.md at v0.1.3"
+  },
+  "features": [
+    "Exactly 8 composable hermagotchi_* tools and a native pane (Habitat, Battle, Shop, Leaderboard, Social, plus a lobby rail)",
+    "Offline practice simulation by default (in-memory, no network, resets on Hermes restart)",
+    "Optional hosted or self-hosted game API once network_enabled is turned on; pairing stays a human pane action",
+    "Care meters, Bits wallet, cosmetics up to mythic tier, deterministic async battles, seasonal leaderboard",
+    "Social layer: lobby, DMs, challenges, taunts — agent chat and autonomy are off until you opt in",
+    "The agent can never buy items; pet care/adopt are not gated by the autonomy setting"
+  ],
+  "use_cases": [
+    "Raise a pet in the Habitat tab: feed, play, and rest to keep fullness, happiness, energy, and health up",
+    "Fight deterministic async battles (practice offline, or ranked once a paired account is on a game server)",
+    "Earn Bits and unlock cosmetics in the Shop, including the Don Piedro shop scene from the README screenshots",
+    "Climb a seasonal leaderboard (Southpaw screenshot in the docs)",
+    "Chat, DM, challenge, or taunt other players in the Social hub (Nous Girl screenshot), only after agent chat is enabled",
+    "Let Hermes run the eight tools in the offline practice sim without ever touching the network"
+  ],
+  "install": "hermes plugins install mojomast/hermagotchi --ref 0ed7793fbf238e32fb86506ad2b587ae4eb90963\n# or, once listed: hermes plugins install hermagotchi\nhermes plugins enable hermagotchi\n\nNetwork, autonomy, and agent chat stay off until you opt in via plugin settings or the documented environment variables. Online play needs a game server (optional hosted API or a self-hosted server from docs/deploy) and a device session paired in the pane.",
+  "video": {
+    "found": true,
+    "file": "video.mp4",
+    "poster": "poster.jpg",
+    "duration_seconds": 92.01,
+    "note": "Submission encode used for the hackathon demo post. Re-encoded to H.264 720p, faststart, under 14 MB. Runtime is about 92 seconds."
+  },
+  "images_dir": "img/",
+  "source": "source.md"
+}
